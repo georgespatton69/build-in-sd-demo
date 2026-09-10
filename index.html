@@ -266,6 +266,58 @@
   .lb-dots button.on{background:var(--accent-tint);transform:scale(1.4);}
   body.lb-lock{overflow:hidden;}
 
+  /* ---------- CONTACT WIDGET ---------- */
+  .cw{position:fixed;right:24px;bottom:24px;z-index:250;display:flex;flex-direction:column;align-items:flex-end;gap:14px;}
+  body.lb-lock .cw{display:none;}
+
+  .cw-fab{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:1px solid var(--accent);
+    padding:14px 22px;border-radius:40px;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;
+    letter-spacing:.09em;text-transform:uppercase;box-shadow:0 10px 30px rgba(8,8,9,.3);transition:.25s;}
+  .cw-fab:hover{background:var(--accent-dark);border-color:var(--accent-dark);transform:translateY(-2px);box-shadow:0 14px 36px rgba(8,8,9,.38);}
+  .cw-fab i{font-size:15px;}
+  .cw-fab .x{display:none;}
+  .cw.open .cw-fab .lbl,.cw.open .cw-fab .chat{display:none;}
+  .cw.open .cw-fab .x{display:inline-block;}
+  .cw.open .cw-fab{padding:15px 18px;}
+
+  .cw-panel{width:352px;max-width:calc(100vw - 32px);background:#fff;border-radius:6px;overflow:hidden;
+    box-shadow:0 26px 70px rgba(8,8,9,.42);transform:translateY(14px) scale(.97);opacity:0;pointer-events:none;
+    transition:opacity .26s ease,transform .26s ease;transform-origin:bottom right;
+    max-height:calc(100vh - 132px);display:flex;flex-direction:column;}
+  .cw.open .cw-panel{opacity:1;transform:none;pointer-events:auto;}
+
+  .cw-head{background:var(--black);color:#fff;padding:20px 22px;flex-shrink:0;}
+  .cw-head img{height:38px;margin-bottom:12px;}
+  .cw-head h4{font-family:'Cardo',serif;font-size:21px;color:#fff;line-height:1.15;}
+  .cw-head p{font-size:13px;color:var(--muted-light);margin-top:5px;}
+
+  .cw-body{padding:20px 22px 22px;overflow-y:auto;flex:1 1 auto;min-height:0;-webkit-overflow-scrolling:touch;}
+  .cw-step{display:none;}
+  .cw-step.on{display:block;animation:cwIn .3s ease;}
+  @keyframes cwIn{from{opacity:0;transform:translateX(9px);}to{opacity:1;transform:none;}}
+
+  .cw-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);color:var(--ink);transition:.2s;}
+  .cw-row:hover{color:var(--accent);}
+  .cw-row .ic{width:38px;height:38px;border-radius:50%;background:var(--warm);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:.2s;}
+  .cw-row:hover .ic{background:var(--accent);color:#fff;}
+  .cw-row .t{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+  .cw-row .v{display:block;font-family:'Cardo',serif;font-size:18px;line-height:1.2;word-break:break-word;}
+
+  .cw-body .btn{width:100%;justify-content:center;margin-top:18px;}
+  .cw-note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;}
+  .cw-back{background:none;border:none;color:var(--accent);cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;
+    font-size:12px;letter-spacing:.09em;text-transform:uppercase;display:inline-flex;align-items:center;gap:7px;padding:0 0 14px;}
+  .cw-body .field{margin-bottom:13px;}
+  .cw-body .field label{font-size:11px;}
+  .cw-body .field input,.cw-body .field select,.cw-body .field textarea{padding:11px 13px;font-size:14.5px;}
+  .cw-body .field textarea{min-height:70px;}
+  .cw-done{text-align:center;padding:14px 0 6px;}
+  .cw-done .tick{width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;font-size:22px;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+  .cw-done h5{font-family:'Cardo',serif;font-size:23px;margin-bottom:8px;}
+  .cw-done p{font-size:14px;color:var(--muted);}
+
   /* ---------- REVEAL ANIMATIONS ---------- */
   .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.2s ease-in-out,transform 1.2s ease-in-out;}
   .reveal.in{opacity:1;transform:none;}
@@ -307,6 +359,14 @@
     .sec{padding:64px 0;}
     .rev-wide{padding:28px 24px;}
     .scrollcue{display:none;}
+    .cw{right:16px;bottom:16px;left:16px;align-items:flex-end;}
+    .cw-panel{width:100%;max-height:calc(100vh - 104px);max-height:calc(100dvh - 104px);}
+    .cw-fab{padding:13px 20px;font-size:12px;}
+    .cw-head{padding:16px 20px;}
+    .cw-head img{height:32px;margin-bottom:9px;}
+    .cw-head h4{font-size:19px;}
+    .cw-body{padding:16px 20px 20px;}
+    .cw-body .field textarea{min-height:58px;}
     .proj .zoom{opacity:1;}
     .lb-title{font-size:16px;}
     .lb-nav{width:40px;height:40px;font-size:15px;}
@@ -751,6 +811,74 @@
     </div>
   </footer>
 
+  <!-- CONTACT WIDGET -->
+  <div class="cw" id="cw">
+    <div class="cw-panel" id="cwPanel" role="dialog" aria-modal="false" aria-label="Contact Build in SD">
+      <div class="cw-head">
+        <img src="img/logo-white.png" alt="Build in SD">
+        <h4 id="cwTitle">Let's get to work.</h4>
+        <p id="cwSub">Reach us directly, or send over your project details.</p>
+      </div>
+      <div class="cw-body">
+
+        <!-- step 1: reach us -->
+        <div class="cw-step on" id="cwStep1">
+          <a class="cw-row" href="tel:8584724640">
+            <span class="ic"><i class="fa-solid fa-phone"></i></span>
+            <span><span class="t">Call</span><span class="v">858-472-4640</span></span>
+          </a>
+          <a class="cw-row" href="mailto:buildinsd@gmail.com">
+            <span class="ic"><i class="fa-solid fa-envelope"></i></span>
+            <span><span class="t">Email</span><span class="v">buildinsd@gmail.com</span></span>
+          </a>
+          <button class="btn" id="cwToForm">Submit an Inquiry <i class="fa-solid fa-arrow-right"></i></button>
+          <div class="cw-note">Licensed &amp; Insured &middot; Free Estimates</div>
+        </div>
+
+        <!-- step 2: the form -->
+        <div class="cw-step" id="cwStep2">
+          <button class="cw-back" id="cwBack"><i class="fa-solid fa-arrow-left"></i> Back</button>
+          <form id="cwForm">
+            <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+            <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="858-472-4640" required></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@example.com"></div>
+            <div class="field"><label>Project Type</label>
+              <select name="project" required>
+                <option value="">Select one</option>
+                <option>Kitchen Remodel</option>
+                <option>Bathroom Remodel</option>
+                <option>Home Addition</option>
+                <option>ADU</option>
+                <option>Outdoor Living Space</option>
+                <option>Custom Carpentry</option>
+                <option>Structural Repair / Retrofit</option>
+                <option>Damage Restoration</option>
+                <option>General Repairs</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field"><label>Project Details</label><textarea name="details" placeholder="Tell us a bit about the space and what you have in mind."></textarea></div>
+            <button class="btn" type="submit">Send My Inquiry</button>
+            <div class="cw-note">We typically reply within one business day.</div>
+          </form>
+        </div>
+
+        <!-- step 3: sent -->
+        <div class="cw-step" id="cwStep3">
+          <div class="cw-done">
+            <div class="tick"><i class="fa-solid fa-check"></i></div>
+            <h5>Thanks, we've got it.</h5>
+            <p>This is a demo form. We'll wire it to email or your CRM before launch.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="cw-fab" id="cwFab" aria-expanded="false" aria-controls="cwPanel">
+      <i class="fa-solid fa-comment-dots chat"></i><span class="lbl">Contact Now</span><i class="fa-solid fa-xmark x"></i>
+    </button>
+  </div>
+
   <!-- PROJECT LIGHTBOX -->
   <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project photos">
     <div class="lb-top">
@@ -788,6 +916,49 @@
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
   document.querySelectorAll('.reveal,.flip').forEach(el=>io.observe(el));
 
+  // ---------- contact widget ----------
+  const cw=document.getElementById('cw'), cwFab=document.getElementById('cwFab'),
+        cwTitle=document.getElementById('cwTitle'), cwSub=document.getElementById('cwSub');
+  const STEP_COPY={
+    1:['Let\'s get to work.','Reach us directly, or send over your project details.'],
+    2:['Tell us about it.','A few details and we\'ll come back with an honest estimate.'],
+    3:['Message sent.','We\'ll be in touch shortly.']
+  };
+  function cwStep(n){
+    ['cwStep1','cwStep2','cwStep3'].forEach((id,i)=>
+      document.getElementById(id).classList.toggle('on',i===n-1));
+    cwTitle.textContent=STEP_COPY[n][0];
+    cwSub.textContent=STEP_COPY[n][1];
+  }
+  function cwOpen(){
+    cw.classList.add('open'); cwFab.setAttribute('aria-expanded','true');
+    cwFab.setAttribute('aria-label','Close contact panel');
+  }
+  function cwClose(){
+    cw.classList.remove('open'); cwFab.setAttribute('aria-expanded','false');
+    cwFab.setAttribute('aria-label','Contact now');
+  }
+  cwFab.addEventListener('click',()=>{
+    if(cw.classList.contains('open')) cwClose();
+    else { cwOpen(); }
+  });
+  document.getElementById('cwToForm').addEventListener('click',()=>{
+    cwStep(2);
+    const f=document.querySelector('#cwStep2 input[name="name"]');
+    if(f) setTimeout(()=>f.focus({preventScroll:true}),60);
+  });
+  document.getElementById('cwBack').addEventListener('click',()=>cwStep(1));
+  document.getElementById('cwForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    cwStep(3);
+  });
+  // close on outside click / Esc
+  document.addEventListener('click',e=>{
+    if(cw.classList.contains('open') && !cw.contains(e.target)) cwClose();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && cw.classList.contains('open') && !lb.classList.contains('open')) cwClose();
+  });
   // ---------- project lightbox ----------
   const GALLERIES = {"interior":[{"src":"img/gal/interior-0.jpg","cap":"Before"},{"src":"img/gal/interior-1.jpg","cap":"Finished"},{"src":"img/gal/interior-2.jpg","cap":"Finished"},{"src":"img/gal/interior-3.jpg","cap":"Finished"},{"src":"img/gal/interior-4.jpg","cap":"Finished"},{"src":"img/gal/interior-5.jpg","cap":"Finished"}],"condo":[{"src":"img/gal/condo-0.jpg","cap":"Before"},{"src":"img/gal/condo-1.jpg","cap":"Finished"},{"src":"img/gal/condo-2.jpg","cap":"Finished"},{"src":"img/gal/condo-3.jpg","cap":"Finished"},{"src":"img/gal/condo-4.jpg","cap":"Finished"},{"src":"img/gal/condo-5.jpg","cap":"Finished"}],"cottage":[{"src":"img/gal/cottage-0.jpg","cap":"Before"},{"src":"img/gal/cottage-1.jpg","cap":"Raised and stripped"},{"src":"img/gal/cottage-2.jpg","cap":"Reframed"},{"src":"img/gal/cottage-3.jpg","cap":"Finished"},{"src":"img/gal/cottage-4.jpg","cap":"Finished"},{"src":"img/gal/cottage-5.jpg","cap":"Finished"}],"curb":[{"src":"img/gal/curb-0.jpg","cap":"The rotted beam"},{"src":"img/gal/curb-1.jpg","cap":"Steel beam delivered"},{"src":"img/gal/curb-2.jpg","cap":"Steel beam set"},{"src":"img/gal/curb-3.jpg","cap":"Finished"},{"src":"img/gal/curb-4.jpg","cap":"Finished"},{"src":"img/gal/curb-5.jpg","cap":"Finished"}],"wall":[{"src":"img/gal/wall-0.jpg","cap":"Before"},{"src":"img/gal/wall-1.jpg","cap":"Finished"},{"src":"img/gal/wall-2.jpg","cap":"Finished"},{"src":"img/gal/wall-3.jpg","cap":"Finished"},{"src":"img/gal/wall-4.jpg","cap":"Finished"}],"kitchenadd":[{"src":"img/gal/kitchenadd-0.jpg","cap":"Before"},{"src":"img/gal/kitchenadd-1.jpg","cap":"Before"},{"src":"img/gal/kitchenadd-2.jpg","cap":"Finished"},{"src":"img/gal/kitchenadd-3.jpg","cap":"Finished"},{"src":"img/gal/kitchenadd-4.jpg","cap":"Finished"},{"src":"img/gal/kitchenadd-5.jpg","cap":"Finished"}],"bath":[{"src":"img/gal/bath-0.jpg","cap":"During"},{"src":"img/gal/bath-1.jpg","cap":"Finished"},{"src":"img/gal/bath-2.jpg","cap":"Finished"},{"src":"img/gal/bath-3.jpg","cap":"Finished"},{"src":"img/gal/bath-4.jpg","cap":"Finished"},{"src":"img/gal/bath-5.jpg","cap":"Finished"}],"garage":[{"src":"img/gal/garage-0.jpg","cap":"Before"},{"src":"img/gal/garage-1.jpg","cap":"Finished"},{"src":"img/gal/garage-2.jpg","cap":"Finished"},{"src":"img/gal/garage-3.jpg","cap":"Finished"},{"src":"img/gal/garage-4.jpg","cap":"Finished"}],"highlands":[{"src":"img/gal/highlands-0.jpg","cap":"Before"},{"src":"img/gal/highlands-1.jpg","cap":"Finished"},{"src":"img/gal/highlands-2.jpg","cap":"Finished"},{"src":"img/gal/highlands-3.jpg","cap":"Finished"},{"src":"img/gal/highlands-4.jpg","cap":"Finished"}],"porch":[{"src":"img/gal/porch-0.jpg","cap":"Before"},{"src":"img/gal/porch-1.jpg","cap":"During"},{"src":"img/gal/porch-2.jpg","cap":"Finished"}],"landing":[{"src":"img/gal/landing-0.jpg","cap":"The rot"},{"src":"img/gal/landing-1.jpg","cap":"Repair in progress"},{"src":"img/gal/landing-2.jpg","cap":"Finished"},{"src":"img/gal/landing-3.jpg","cap":"Finished"}]};
 
