@@ -110,8 +110,11 @@
   .svc-body{padding:28px 26px 30px;display:flex;flex-direction:column;flex:1;}
   .svc-body .eyebrow{font-size:11px;}
   .svc-body h3{font-size:26px;margin:10px 0 10px;}
-  .svc-body p{font-size:14.5px;color:var(--muted);flex:1;}
-  .svc-body .more{margin-top:20px;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;}
+  .svc-body p{font-size:14.5px;color:var(--muted);}
+  .svc-body .checks{margin-top:16px;}
+  .svc-body .checks li{font-size:13.5px;padding:8px 0;gap:10px;}
+  .svc-body .checks li i{font-size:11px;margin-top:5px;}
+  .svc-body .more{margin-top:auto;padding-top:20px;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;}
   .svc-body .more i{transition:.3s;}
   .svc:hover .svc-body .more i{transform:translateX(5px);}
 
@@ -124,11 +127,6 @@
   .mini p{font-size:14px;color:var(--muted);}
 
   /* ---------- CHECKLIST (kitchen + bath detail) ---------- */
-  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
-  .detail h3{font-size:30px;margin-bottom:8px;}
-  .detail > p{font-size:15.5px;color:var(--muted);margin-bottom:22px;}
-  .detail .shot{aspect-ratio:16/10;border-radius:3px;overflow:hidden;margin-bottom:26px;}
-  .detail .shot img{width:100%;height:100%;object-fit:cover;}
   .checks{list-style:none;}
   .checks li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);font-size:15px;}
   .checks li i{color:var(--accent);font-size:13px;margin-top:6px;}
@@ -342,8 +340,7 @@
     .trust i{margin-right:7px;}
     .hero-strip{grid-template-columns:1fr;}
     .hs{height:260px;}
-    .svc-grid,.proj-grid,.rev-grid,.svc-mini,.detail-grid,.bios{grid-template-columns:1fr;}
-    .detail-grid{gap:48px;}
+    .svc-grid,.proj-grid,.rev-grid,.svc-mini,.bios{grid-template-columns:1fr;}
     .bios{gap:40px;}
     .hide-mobile{display:none;}
     .who,.cta-grid{grid-template-columns:1fr;gap:36px;}
@@ -479,102 +476,6 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="sec warm" id="services">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Services Offered</div>
-        <h2>From small home repairs to <i>full-scale construction.</i></h2>
-        <p>We handle all types of work, including repairs, remodeling, additions, ADUs, and new builds, delivering high-quality craftsmanship with a focus on durability and clean, modern finishes.</p>
-      </div>
-      <div class="svc-grid">
-        <div class="svc flip d1">
-          <div class="ph"><img src="img/kitchen-4.jpg" alt="Kitchen remodeling in San Diego"></div>
-          <div class="svc-body"><div class="eyebrow">Service</div><h3>Kitchen Remodeling</h3><p>Transforming your space with custom designs and high-quality upgrades. From cabinetry and countertops to layout redesign and structural improvements, we manage the entire remodeling process.</p><a class="more" href="#kitchen-bath">What's included <i class="fa-solid fa-arrow-right"></i></a></div>
-        </div>
-        <div class="svc flip d2">
-          <div class="ph"><img src="img/bath-5.jpg" alt="Bathroom remodeling in San Diego" style="object-position:center 26%;"></div>
-          <div class="svc-body"><div class="eyebrow">Service</div><h3>Bathroom Remodeling</h3><p>Whether you are upgrading fixtures, improving layout, or creating a completely new design, our team delivers high-quality craftsmanship and attention to detail.</p><a class="more" href="#kitchen-bath">What's included <i class="fa-solid fa-arrow-right"></i></a></div>
-        </div>
-        <div class="svc flip d3">
-          <div class="ph"><img src="img/proj-cottage.jpg" alt="Home additions and accessory dwelling units"></div>
-          <div class="svc-body"><div class="eyebrow">Service</div><h3>Additions &amp; ADUs</h3><p>We handle every phase including design coordination, permitting, and construction, ensuring your ADU meets all local San Diego requirements while maximizing functionality, efficiency, and value.</p><a class="more" href="#contact">Talk it through <i class="fa-solid fa-arrow-right"></i></a></div>
-        </div>
-      </div>
-
-      <div class="svc-mini reveal">
-        <div class="mini"><i class="fa-solid fa-house-chimney"></i><h4>Home Additions &amp; New Construction</h4><p>Expanding and building homes tailored to your needs.</p></div>
-        <div class="mini"><i class="fa-solid fa-fire-burner"></i><h4>Outdoor Living Spaces</h4><p>Creating custom decks, kitchens, entertainment areas, and more.</p></div>
-        <div class="mini"><i class="fa-solid fa-door-open"></i><h4>Windows, Doors &amp; Exterior Finishes</h4><p>Installation, repair, and updates for a polished exterior.</p></div>
-        <div class="mini"><i class="fa-solid fa-ruler-combined"></i><h4>Custom Carpentry &amp; Woodworking</h4><p>Built-ins, trim, cabinetry, and fine finish details.</p></div>
-        <div class="mini"><i class="fa-solid fa-helmet-safety"></i><h4>Structural Repairs &amp; Retrofits</h4><p>Foundation, framing, and structural updates for safety and durability.</p></div>
-        <div class="mini"><i class="fa-solid fa-droplet"></i><h4>Damage Restoration</h4><p>Fire, flood, and other disaster repair services.</p></div>
-        <div class="mini"><i class="fa-solid fa-screwdriver-wrench"></i><h4>General Repairs &amp; Maintenance</h4><p>Stucco, drywall, electrical, and more to keep your home in top shape.</p></div>
-        <div class="mini"><i class="fa-solid fa-trowel-bricks"></i><h4>Tile &amp; Stone Installation</h4><p>Custom tile and stone work, including steam showers and full wall treatments.</p></div>
-        <div class="mini"><i class="fa-solid fa-file-signature"></i><h4>Permit Coordination</h4><p>We manage the city paperwork and inspections so your project stays on track.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KITCHEN + BATH DETAIL -->
-  <section class="sec" id="kitchen-bath">
-    <div class="wrap">
-      <div class="sec-head center reveal">
-        <div class="eyebrow">In Detail</div>
-        <h2>Kitchens and baths, <i>start to finish.</i></h2>
-        <p>We manage every stage of the remodeling process to ensure a smooth and successful project.</p>
-      </div>
-      <div class="detail-grid">
-        <div class="detail reveal d1">
-          <div class="shot"><img src="img/kitchen-2.jpg" alt="Custom kitchen cabinetry and countertops"></div>
-          <h3>Kitchen Remodeling in San Diego</h3>
-          <p>Whether you are updating an older kitchen or completely redesigning the space, our team delivers high-quality craftsmanship and attention to detail.</p>
-          <ul class="checks">
-            <li><i class="fa-solid fa-check"></i>Custom cabinetry installation</li>
-            <li><i class="fa-solid fa-check"></i>Countertops and backsplash upgrades</li>
-            <li><i class="fa-solid fa-check"></i>Structural wall modifications</li>
-            <li><i class="fa-solid fa-check"></i>Electrical and lighting improvements</li>
-            <li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li>
-            <li><i class="fa-solid fa-check"></i>Flooring replacement</li>
-            <li><i class="fa-solid fa-check"></i>Layout redesign</li>
-            <li><i class="fa-solid fa-check"></i>Permit coordination</li>
-          </ul>
-        </div>
-        <div class="detail reveal d2">
-          <div class="shot"><img src="img/bath-2.jpg" alt="Custom hex tile walk-in shower with frameless glass"></div>
-          <h3>Bathroom Remodeling in San Diego</h3>
-          <p>From tile installation and custom vanities to plumbing upgrades and modern finishes, we manage every stage of the remodeling process.</p>
-          <ul class="checks">
-            <li><i class="fa-solid fa-check"></i>Custom shower and bathtub installation</li>
-            <li><i class="fa-solid fa-check"></i>Tile flooring and wall tile, including steam showers</li>
-            <li><i class="fa-solid fa-check"></i>Vanity and countertop upgrades</li>
-            <li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li>
-            <li><i class="fa-solid fa-check"></i>Lighting and electrical upgrades</li>
-            <li><i class="fa-solid fa-check"></i>Layout redesign</li>
-            <li><i class="fa-solid fa-check"></i>Waterproofing and ventilation improvements</li>
-            <li><i class="fa-solid fa-check"></i>Permit coordination</li>
-          </ul>
-        </div>
-      </div>
-      <div class="proj-foot reveal"><a class="btn btn-dark" href="#contact">Request a Free Estimate</a></div>
-    </div>
-  </section>
-
-  <!-- SERVICE AREAS -->
-  <section class="sec areas-section">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Where We Work</div>
-        <h2>Serving San Diego <i>County.</i></h2>
-        <p>Building across the coast and inland communities, from the La Jolla bluffs to the backcountry.</p>
-      </div>
-      <div class="areas reveal">
-        <span>La Jolla</span><span>Carlsbad</span><span>Encinitas</span><span>Del Mar</span><span>Point Loma</span><span>Coronado</span>
-        <span>Solana Beach</span><span>Rancho Santa Fe</span><span>North Park</span><span>Chula Vista</span><span>Poway</span><span>Escondido</span>
-      </div>
-    </div>
-  </section>
-
   <!-- PROJECTS -->
   <section class="sec warm" id="projects">
     <div class="wrap">
@@ -652,6 +553,60 @@
         </div>
       </div>
       <div class="proj-foot reveal"><a class="btn btn-dark" href="#contact">Start Your Project</a></div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="sec areas-section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Where We Work</div>
+        <h2>Serving San Diego <i>County.</i></h2>
+        <p>Building across the coast and inland communities, from the La Jolla bluffs to the backcountry.</p>
+      </div>
+      <div class="areas reveal">
+        <span>La Jolla</span><span>Carlsbad</span><span>Encinitas</span><span>Del Mar</span><span>Point Loma</span><span>Coronado</span>
+        <span>Solana Beach</span><span>Rancho Santa Fe</span><span>North Park</span><span>Chula Vista</span><span>Poway</span><span>Escondido</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec warm" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Services Offered</div>
+        <h2>From small home repairs to <i>full-scale construction.</i></h2>
+        <p>We handle all types of work, including repairs, remodeling, additions, ADUs, and new builds, delivering high-quality craftsmanship with a focus on durability and clean, modern finishes.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc flip d1">
+          <div class="ph"><img src="img/kitchen-4.jpg" alt="Kitchen remodeling in San Diego"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Kitchen Remodeling in San Diego</h3><p>Transforming your space with custom designs and high-quality upgrades. Whether you are updating an older kitchen or completely redesigning the space, we manage the entire remodeling process.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Custom cabinetry installation</li><li><i class="fa-solid fa-check"></i>Countertops and backsplash upgrades</li><li><i class="fa-solid fa-check"></i>Structural wall modifications</li><li><i class="fa-solid fa-check"></i>Electrical and lighting improvements</li><li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li><li><i class="fa-solid fa-check"></i>Flooring replacement</li><li><i class="fa-solid fa-check"></i>Layout redesign</li><li><i class="fa-solid fa-check"></i>Permit coordination</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="svc flip d2">
+          <div class="ph"><img src="img/bath-5.jpg" alt="Bathroom remodeling in San Diego" style="object-position:center 26%;"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Bathroom Remodeling in San Diego</h3><p>Whether you are upgrading fixtures, improving layout, or creating a completely new design, we deliver high-quality craftsmanship and attention to detail, from tile installation and custom vanities to plumbing upgrades and modern finishes.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Custom shower and bathtub installation</li><li><i class="fa-solid fa-check"></i>Tile flooring and wall tile, including steam showers</li><li><i class="fa-solid fa-check"></i>Vanity and countertop upgrades</li><li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li><li><i class="fa-solid fa-check"></i>Lighting and electrical upgrades</li><li><i class="fa-solid fa-check"></i>Layout redesign</li><li><i class="fa-solid fa-check"></i>Waterproofing and ventilation improvements</li><li><i class="fa-solid fa-check"></i>Permit coordination</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="svc flip d3">
+          <div class="ph"><img src="img/proj-cottage.jpg" alt="Home additions and accessory dwelling units"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Additions &amp; ADUs</h3><p>We handle every phase, ensuring your ADU meets all local San Diego requirements while maximizing functionality, efficiency, and value, with craftsmanship that integrates naturally with your existing home.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Design coordination</li><li><i class="fa-solid fa-check"></i>Permitting and local San Diego requirements</li><li><i class="fa-solid fa-check"></i>Full construction</li><li><i class="fa-solid fa-check"></i>Thoughtful layouts</li><li><i class="fa-solid fa-check"></i>Premium finishes and craftsmanship</li></ul><a class="more" href="#contact">Talk it through <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+      </div>
+
+      <div class="svc-mini reveal">
+        <div class="mini"><i class="fa-solid fa-house-chimney"></i><h4>Home Additions &amp; New Construction</h4><p>Expanding and building homes tailored to your needs.</p></div>
+        <div class="mini"><i class="fa-solid fa-fire-burner"></i><h4>Outdoor Living Spaces</h4><p>Creating custom decks, kitchens, entertainment areas, and more.</p></div>
+        <div class="mini"><i class="fa-solid fa-door-open"></i><h4>Windows, Doors &amp; Exterior Finishes</h4><p>Installation, repair, and updates for a polished exterior.</p></div>
+        <div class="mini"><i class="fa-solid fa-ruler-combined"></i><h4>Custom Carpentry &amp; Woodworking</h4><p>Built-ins, trim, cabinetry, and fine finish details.</p></div>
+        <div class="mini"><i class="fa-solid fa-helmet-safety"></i><h4>Structural Repairs &amp; Retrofits</h4><p>Foundation, framing, and structural updates for safety and durability.</p></div>
+        <div class="mini"><i class="fa-solid fa-droplet"></i><h4>Damage Restoration</h4><p>Fire, flood, and other disaster repair services.</p></div>
+        <div class="mini"><i class="fa-solid fa-screwdriver-wrench"></i><h4>General Repairs &amp; Maintenance</h4><p>Stucco, drywall, electrical, and more to keep your home in top shape.</p></div>
+        <div class="mini"><i class="fa-solid fa-trowel-bricks"></i><h4>Tile &amp; Stone Installation</h4><p>Custom tile and stone work, including steam showers and full wall treatments.</p></div>
+        <div class="mini"><i class="fa-solid fa-file-signature"></i><h4>Permit Coordination</h4><p>We manage the city paperwork and inspections so your project stays on track.</p></div>
+      </div>
+
+      <div class="proj-foot reveal"><a class="btn btn-dark" href="#contact">Request a Free Estimate</a></div>
     </div>
   </section>
 
