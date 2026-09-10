@@ -57,42 +57,17 @@
 
   /* ---------- HERO ---------- */
   .hero{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:center;}
-  .hero .kb{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1900&q=80') center/cover;
-    transform:scale(1.12);animation:kb 18s ease-in-out infinite alternate;}
-  @keyframes kb{from{transform:scale(1.12) translate(0,0);}to{transform:scale(1.2) translate(-2%,-2%);}}
+  .hero .kb{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1900&q=80') center/cover;}
   .hero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,9,.88) 0%,rgba(8,8,9,.55) 52%,rgba(8,8,9,.2) 100%);}
   .hero-content{position:relative;z-index:3;color:#fff;max-width:760px;}
   .hero .eyebrow{color:var(--accent-tint);}
   .hero h1{font-size:clamp(42px,5.6vw,80px);line-height:1.18;color:#fff;margin:20px 0 22px;letter-spacing:.3px;}
   .hero h1 i{font-style:normal;color:var(--accent-tint);display:block;}
 
-  /* hero copy fades up in sequence, then the accent line builds on top of it */
-  .hero .eyebrow,.hero h1,.hero p,.hero-cta{
-    opacity:0;animation:heroFade .8s cubic-bezier(.2,.7,.3,1) forwards;}
-  .hero .eyebrow{animation-delay:.08s;}
-  .hero h1{animation-delay:.20s;}
-  .hero p{animation-delay:.50s;}
-  .hero-cta{animation-delay:.70s;}
-  @keyframes heroFade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
-  /* the cue is centred with translateX(-50%), so it fades on opacity only and keeps its bob */
-  .hero .scrollcue{opacity:0;animation:cueIn .8s ease 1.7s forwards,bob 2s ease-in-out 2.5s infinite;}
-  @keyframes cueIn{to{opacity:1;}}
 
-  /* headline builds itself: each letter is set into place like a piece being fitted */
-  .hero h1 .w{display:inline-block;white-space:nowrap;}
-  .hero h1 .c{display:inline-block;opacity:0;will-change:transform,opacity;
-    animation:setPiece 1s cubic-bezier(.22,.68,.3,1) both;animation-delay:var(--d,0s);}
-  @keyframes setPiece{
-    0%  {opacity:0;transform:translateY(-.72em) rotate(var(--r,-7deg)) scale(1.05);}
-    45% {opacity:1;}
-    62% {transform:translateY(.07em) rotate(calc(var(--r,-7deg) * .10)) scaleY(.93) scaleX(1.05);}
-    80% {transform:translateY(-.04em) rotate(0deg) scaleY(1.03) scaleX(.985);}
-    100%{opacity:1;transform:none;}
-  }
   .hero p{font-size:19px;font-weight:300;max-width:540px;color:#e8e5e0;}
   .hero-cta{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;align-items:center;}
-  .scrollcue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.6);font-size:20px;animation:bob 2s ease-in-out infinite;}
-  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+  .scrollcue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.6);font-size:20px;}
 
   /* ---------- HERO SHOWCASE STRIP ---------- */
   .hero-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--black);}
@@ -395,10 +370,6 @@
     .lb-cap{font-size:11.5px;}
   }
   @media(prefers-reduced-motion:reduce){
-    .hero .kb{animation:none;}
-    .hero h1 .c{animation:none;opacity:1;transform:none;}
-    .hero .eyebrow,.hero h1,.hero p,.hero-cta{animation:none;opacity:1;transform:none;}
-    .hero .scrollcue{animation:none;opacity:1;}
     .reveal,.flip{transition:none;opacity:1;transform:none;}
   }
 </style>
@@ -894,44 +865,6 @@
   // scroll reveals
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
   document.querySelectorAll('.reveal,.flip').forEach(el=>io.observe(el));
-
-  // ---------- headline build-in ----------
-  // Only the accent line ("finish carpentry.") builds itself. The rest of the headline
-  // renders immediately. Words stay wrapped in their own inline-block so line breaking
-  // is unaffected.
-  (function buildHeadline(){
-    const accent = document.querySelector('.hero h1 i');
-    if(!accent || !('animate' in Element.prototype)) return;
-    let n = 0;
-
-    const splitInto = (parent) => {
-      [...parent.childNodes].forEach(node => {
-        if(node.nodeType !== 3){ if(node.nodeType === 1) splitInto(node); return; }
-        const frag = document.createDocumentFragment();
-        node.textContent.split(/(\s+)/).forEach(chunk => {
-          if(!chunk) return;
-          if(/^\s+$/.test(chunk)){ frag.appendChild(document.createTextNode(chunk)); return; }
-          const word = document.createElement('span');
-          word.className = 'w';
-          [...chunk].forEach(ch => {
-            const c = document.createElement('span');
-            c.className = 'c';
-            c.textContent = ch;
-            // starts once the headline fade has landed, then a slow, deliberate stagger
-            c.style.setProperty('--d', (1.0 + n * 0.065).toFixed(3) + 's');
-            // alternate the lean so the letters do not all tip the same way
-            c.style.setProperty('--r', ((n % 2 ? 1 : -1) * (6 + (n % 3) * 2)) + 'deg');
-            n++;
-            word.appendChild(c);
-          });
-          frag.appendChild(word);
-        });
-        parent.replaceChild(frag, node);
-      });
-    };
-
-    splitInto(accent);
-  })();
 
   // ---------- contact widget ----------
   const cw=document.getElementById('cw'), cwFab=document.getElementById('cwFab'),
