@@ -882,12 +882,12 @@
   document.querySelectorAll('.reveal,.flip').forEach(el=>io.observe(el));
 
   // ---------- headline build-in ----------
-  // Split the hero headline to the character so each one can be set into place on its
-  // own beat. Words stay wrapped in their own inline-block so line breaking is unaffected,
-  // and the <i> accent keeps its element so its colour and block display survive.
+  // Only the accent line ("finish carpentry.") builds itself. The rest of the headline
+  // renders immediately. Words stay wrapped in their own inline-block so line breaking
+  // is unaffected.
   (function buildHeadline(){
-    const h1 = document.querySelector('.hero h1');
-    if(!h1 || !('animate' in Element.prototype)) return;
+    const accent = document.querySelector('.hero h1 i');
+    if(!accent || !('animate' in Element.prototype)) return;
     let n = 0;
 
     const splitInto = (parent) => {
@@ -903,7 +903,7 @@
             const c = document.createElement('span');
             c.className = 'c';
             c.textContent = ch;
-            c.style.setProperty('--d', (n * 0.028).toFixed(3) + 's');
+            c.style.setProperty('--d', (0.15 + n * 0.035).toFixed(3) + 's');
             // alternate the lean so the letters do not all tip the same way
             c.style.setProperty('--r', ((n % 2 ? 1 : -1) * (6 + (n % 3) * 2)) + 'deg');
             n++;
@@ -915,7 +915,7 @@
       });
     };
 
-    splitInto(h1);
+    splitInto(accent);
   })();
 
   // ---------- contact widget ----------
