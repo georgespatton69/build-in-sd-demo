@@ -238,6 +238,38 @@
   footer a:hover{color:#fff;}
   .foot-bottom{border-top:1px solid #1c1c20;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;}
 
+  /* ---------- PROJECT LIGHTBOX ---------- */
+  .proj{cursor:pointer;}
+  .proj .zoom{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;
+    background:rgba(8,8,9,.55);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;opacity:0;transition:.3s;z-index:2;}
+  .proj:hover .zoom{opacity:1;}
+  .proj .count{position:absolute;left:24px;top:16px;z-index:2;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:#fff;background:rgba(8,8,9,.55);backdrop-filter:blur(4px);padding:5px 12px;border-radius:30px;}
+
+  .lb{position:fixed;inset:0;z-index:300;background:#0a0a0c;display:none;flex-direction:column;}
+  .lb.open{display:flex;}
+  .lb-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px;color:#fff;flex-shrink:0;}
+  .lb-title{font-family:'Cardo',serif;font-size:19px;line-height:1.2;}
+  .lb-title span{display:block;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-tint);margin-bottom:4px;}
+  .lb-close{background:none;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1;padding:6px;flex-shrink:0;outline:none;}
+  .lb-close:focus-visible{outline:2px solid var(--accent-tint);outline-offset:3px;}
+  .lb-stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 8px;}
+  .lb-stage img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:17px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);transition:.2s;}
+  .lb-nav:hover{background:var(--accent);border-color:var(--accent);}
+  .lb-prev{left:14px;} .lb-next{right:14px;}
+  .lb-bottom{flex-shrink:0;padding:14px 22px 22px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .lb-cap{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent);padding:6px 15px;border-radius:30px;}
+  .lb-idx{font-family:'Cardo',serif;font-size:15px;color:var(--muted-light);}
+  .lb-dots{display:flex;gap:7px;}
+  .lb-dots button{width:7px;height:7px;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.3);transition:.2s;}
+  .lb-dots button.on{background:var(--accent-tint);transform:scale(1.4);}
+  body.lb-lock{overflow:hidden;}
+
   /* ---------- REVEAL ANIMATIONS ---------- */
   .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.2s ease-in-out,transform 1.2s ease-in-out;}
   .reveal.in{opacity:1;transform:none;}
@@ -280,6 +312,12 @@
     .sec{padding:64px 0;}
     .rev-wide{padding:28px 24px;}
     .scrollcue{display:none;}
+    .proj .zoom{opacity:1;}
+    .lb-title{font-size:16px;}
+    .lb-nav{width:40px;height:40px;font-size:15px;}
+    .lb-prev{left:8px;} .lb-next{right:8px;}
+    .lb-bottom{padding:12px 18px 20px;flex-wrap:wrap;gap:10px;}
+    .lb-cap{font-size:11.5px;}
   }
   @media(prefers-reduced-motion:reduce){
     .hero .kb,.hero .sweep,.scrollcue{animation:none;}
@@ -323,9 +361,9 @@
     <div class="scrim"></div>
     <div class="sweep"></div>
     <div class="wrap hero-content">
-      <div class="eyebrow">San Diego Born &amp; Raised &middot; General Contractor</div>
-      <h1>Young enough to <i>care.</i> Skilled enough to prove it.</h1>
-      <p>I'm not coasting on a 40-year-old reputation. I'm building one, one San Diego home at a time, which means your project gets everything I've got.</p>
+      <div class="eyebrow">San Diego &middot; Licensed General Contractor</div>
+      <h1>Building, remodeling, tile and <i>finish carpentry.</i></h1>
+      <p>Licensed California general contractor with 25+ years delivering clean, precise work and thoughtful design. Licensed and insured. Free estimates.</p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Request a Free Estimate</a>
         <a class="btn btn-ghost" href="#projects">See Our Work</a>
@@ -469,52 +507,74 @@
         <p>A selection of homes we have reshaped. Hover to see them come to life.</p>
       </div>
       <div class="proj-grid">
-        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/project-three-8zgh7-za8fz-btffx" target="_blank" rel="noopener">
-          <img src="img/proj-interior.jpg" alt="Complete interior remodel, kitchen and bathroom">
+        <div class="proj reveal d1" data-project="interior" role="button" tabindex="0" aria-label="Kitchen and Bathroom, view 6 photos">
+          <img src="img/proj-interior.jpg" alt="Kitchen and Bathroom">
+          <div class="count">6 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Complete Interior Remodel</div><h3>Kitchen &amp; Bathroom</h3><p>Complete remodel of a 1,500 sq. ft. condo (2BR/1.5BA) including full kitchen renovation.</p></div>
-        </a>
-        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/project-two-llrgk-8m5ng-8gx46" target="_blank" rel="noopener">
-          <img src="img/proj-curb-appeal.jpg" alt="Structural beam repair and entry gate replacement">
+        </div>
+        <div class="proj reveal d2" data-project="curb" role="button" tabindex="0" aria-label="Beam Repair and Entry Gates, view 6 photos">
+          <img src="img/proj-curb-appeal.jpg" alt="Beam Repair and Entry Gates">
+          <div class="count">6 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Curb Appeal</div><h3>Beam Repair &amp; Entry Gates</h3><p>Rotted wood beam replaced with steel, cabinet installation, and entry gate replacement.</p></div>
-        </a>
-        <a class="proj reveal d3" href="https://www.buildinsd.com/projects/new-portfolio-item-7k2e7" target="_blank" rel="noopener">
-          <img src="img/proj-cottage.jpg" alt="Cottage rebuild, complete renovation">
+        </div>
+        <div class="proj reveal d3" data-project="cottage" role="button" tabindex="0" aria-label="1915 Restoration, view 6 photos">
+          <img src="img/proj-cottage.jpg" alt="1915 Restoration">
+          <div class="count">6 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Cottage Rebuild</div><h3>1915 Restoration</h3><p>Complete renovation of a 100 year old structure.</p></div>
-        </a>
-        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/project-one-ephnc-p2jtd-jydce" target="_blank" rel="noopener">
-          <img src="img/proj-property-wall.jpg" alt="Retaining wall and red cedar fence">
+        </div>
+        <div class="proj reveal d1" data-project="wall" role="button" tabindex="0" aria-label="Retaining Wall and Fence, view 5 photos">
+          <img src="img/proj-property-wall.jpg" alt="Retaining Wall and Fence">
+          <div class="count">5 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Property Wall</div><h3>Retaining Wall &amp; Fence</h3><p>90 ft retaining wall with smooth coat stucco, new red cedar fence and gates.</p></div>
-        </a>
-        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/project-foothill-condo-remodel-7tp7m" target="_blank" rel="noopener">
-          <img src="img/proj-condo.jpg" alt="Complete condo remodel">
+        </div>
+        <div class="proj reveal d2" data-project="condo" role="button" tabindex="0" aria-label="Complete Condo Remodel, view 6 photos">
+          <img src="img/proj-condo.jpg" alt="Complete Condo Remodel">
+          <div class="count">6 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Polo Condo</div><h3>Complete Condo Remodel</h3><p>Complete gut and remodel of a 2BR/2BA condo.</p></div>
-        </a>
-        <a class="proj reveal d3" href="https://www.buildinsd.com/projects/kitchen-addition-zdwkt" target="_blank" rel="noopener">
-          <img src="img/proj-kitchen-add.jpg" alt="Kitchen addition and remodel">
+        </div>
+        <div class="proj reveal d3" data-project="kitchenadd" role="button" tabindex="0" aria-label="Kitchen Addition and Remodel, view 6 photos">
+          <img src="img/proj-kitchen-add.jpg" alt="Kitchen Addition and Remodel">
+          <div class="count">6 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Addition</div><h3>Kitchen Addition &amp; Remodel</h3><p>Added square footage and a full kitchen rebuild in one phase.</p></div>
-        </a>
-        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/project-new-entry-porch-m49l6" target="_blank" rel="noopener">
-          <img src="img/proj-entry-porch.jpg" alt="New concrete entry porch with Saltillo tile">
+        </div>
+        <div class="proj reveal d1" data-project="porch" role="button" tabindex="0" aria-label="New Entry Porch, view 3 photos">
+          <img src="img/proj-entry-porch.jpg" alt="New Entry Porch">
+          <div class="count">3 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Exterior</div><h3>New Entry Porch</h3><p>10 ft by 5 ft concrete porch with Saltillo tile, stucco, and a copper cap.</p></div>
-        </a>
-        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/project-four-yjynj-4yxzx-7tsga" target="_blank" rel="noopener">
-          <img src="img/proj-landing.jpg" alt="Landing rot repair and stucco patch">
+        </div>
+        <div class="proj reveal d2" data-project="landing" role="button" tabindex="0" aria-label="Rot Repair and Stucco Patch, view 4 photos">
+          <img src="img/proj-landing.jpg" alt="Rot Repair and Stucco Patch">
+          <div class="count">4 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Landing</div><h3>Rot Repair &amp; Stucco Patch</h3><p>Structural framing repair with stucco patching and painting.</p></div>
-        </a>
-        <a class="proj reveal d3" href="https://www.buildinsd.com/projects/highlands-bathrooms-b5ct9" target="_blank" rel="noopener">
-          <img src="img/proj-highlands.jpg" alt="Master and guest bathrooms remodeled">
+        </div>
+        <div class="proj reveal d3" data-project="highlands" role="button" tabindex="0" aria-label="Master and Guest Baths, view 5 photos">
+          <img src="img/proj-highlands.jpg" alt="Master and Guest Baths">
+          <div class="count">5 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Highlands</div><h3>Master &amp; Guest Baths</h3><p>Two full bathroom remodels completed together.</p></div>
-        </a>
-        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/bathroom-remodel-ldj4e" target="_blank" rel="noopener">
-          <img src="img/proj-bath-2.jpg" alt="Bathroom remodel with double vanity and saltillo tile floor" style="object-position:center 42%;">
+        </div>
+        <div class="proj reveal d1" data-project="bath" role="button" tabindex="0" aria-label="Bathroom Remodel, view 6 photos">
+          <img src="img/proj-bath-2.jpg" alt="Bathroom Remodel" style="object-position:center 42%;">
+          <div class="count">6 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Remodel</div><h3>Bathroom Remodel</h3><p>Full tear-out, waterproofing, and custom tile finish.</p></div>
-        </a>
-        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/garage-remodel-9ty3y" target="_blank" rel="noopener">
-          <img src="img/proj-garage.jpg" alt="Garage remodel">
+        </div>
+        <div class="proj reveal d2" data-project="garage" role="button" tabindex="0" aria-label="Garage Remodel, view 5 photos">
+          <img src="img/proj-garage.jpg" alt="Garage Remodel">
+          <div class="count">5 photos</div>
+          <div class="zoom"><i class="fa-solid fa-expand"></i></div>
           <div class="cap"><div class="eyebrow">Conversion</div><h3>Garage Remodel</h3><p>Garage reworked into clean, usable finished space.</p></div>
-        </a>
+        </div>
       </div>
-      <div class="proj-foot reveal"><a class="btn btn-dark" href="https://www.buildinsd.com/projects" target="_blank" rel="noopener">View the Full Portfolio</a></div>
+      <div class="proj-foot reveal"><a class="btn btn-dark" href="#contact">Start Your Project</a></div>
     </div>
   </section>
 
@@ -553,7 +613,7 @@
           <p>He went on to found SW Construction in Santa Barbara, where he built a reputation for delivering thoughtfully executed projects ranging from custom homes to high-end remodels, all defined by precision, quality, and lasting value.</p>
         </div>
         <div class="bio reveal d2">
-          <div class="ph"><img src="img/pat.jpg" alt="Pat McLoughlin on site" style="object-position:center 28%;"></div>
+          <div class="ph"><img src="img/pat.jpg" alt="Pat McLoughlin framing a wall opening on site"></div>
           <h3>Pat McLoughlin</h3>
           <div class="role">Co-Founder</div>
           <p>Pat, a San Diego native, studied Construction Technology at Santa Barbara City College and has spent years working throughout Southern California, developing a deep understanding of regional architecture, materials, and elevated design standards.</p>
@@ -702,6 +762,24 @@
     </div>
   </footer>
 
+  <!-- PROJECT LIGHTBOX -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Project photos">
+    <div class="lb-top">
+      <div class="lb-title"><span id="lbEyebrow"></span><b id="lbName"></b></div>
+      <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="lb-stage" id="lbStage">
+      <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+      <img id="lbImg" src="" alt="">
+      <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    <div class="lb-bottom">
+      <span class="lb-cap" id="lbCap"></span>
+      <div class="lb-dots" id="lbDots"></div>
+      <span class="lb-idx" id="lbIdx"></span>
+    </div>
+  </div>
+
 <script>
   // sticky nav state
   const nav=document.getElementById('nav');
@@ -727,6 +805,66 @@
     const tick=()=>{n=Math.min(t,n+step);el.textContent=n+suf;if(n<t)requestAnimationFrame(tick);};tick();cio.unobserve(el);
   }});},{threshold:.6});
   document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+  // ---------- project lightbox ----------
+  const GALLERIES = {"interior":[{"src":"img/gal/interior-0.jpg","cap":"Before"},{"src":"img/gal/interior-1.jpg","cap":"Finished"},{"src":"img/gal/interior-2.jpg","cap":"Finished"},{"src":"img/gal/interior-3.jpg","cap":"Finished"},{"src":"img/gal/interior-4.jpg","cap":"Finished"},{"src":"img/gal/interior-5.jpg","cap":"Finished"}],"condo":[{"src":"img/gal/condo-0.jpg","cap":"Before"},{"src":"img/gal/condo-1.jpg","cap":"Finished"},{"src":"img/gal/condo-2.jpg","cap":"Finished"},{"src":"img/gal/condo-3.jpg","cap":"Finished"},{"src":"img/gal/condo-4.jpg","cap":"Finished"},{"src":"img/gal/condo-5.jpg","cap":"Finished"}],"cottage":[{"src":"img/gal/cottage-0.jpg","cap":"Before"},{"src":"img/gal/cottage-1.jpg","cap":"Raised and stripped"},{"src":"img/gal/cottage-2.jpg","cap":"Reframed"},{"src":"img/gal/cottage-3.jpg","cap":"Finished"},{"src":"img/gal/cottage-4.jpg","cap":"Finished"},{"src":"img/gal/cottage-5.jpg","cap":"Finished"}],"curb":[{"src":"img/gal/curb-0.jpg","cap":"The rotted beam"},{"src":"img/gal/curb-1.jpg","cap":"Steel beam delivered"},{"src":"img/gal/curb-2.jpg","cap":"Steel beam set"},{"src":"img/gal/curb-3.jpg","cap":"Finished"},{"src":"img/gal/curb-4.jpg","cap":"Finished"},{"src":"img/gal/curb-5.jpg","cap":"Finished"}],"wall":[{"src":"img/gal/wall-0.jpg","cap":"Before"},{"src":"img/gal/wall-1.jpg","cap":"Finished"},{"src":"img/gal/wall-2.jpg","cap":"Finished"},{"src":"img/gal/wall-3.jpg","cap":"Finished"},{"src":"img/gal/wall-4.jpg","cap":"Finished"}],"kitchenadd":[{"src":"img/gal/kitchenadd-0.jpg","cap":"Before"},{"src":"img/gal/kitchenadd-1.jpg","cap":"Before"},{"src":"img/gal/kitchenadd-2.jpg","cap":"Finished"},{"src":"img/gal/kitchenadd-3.jpg","cap":"Finished"},{"src":"img/gal/kitchenadd-4.jpg","cap":"Finished"},{"src":"img/gal/kitchenadd-5.jpg","cap":"Finished"}],"bath":[{"src":"img/gal/bath-0.jpg","cap":"During"},{"src":"img/gal/bath-1.jpg","cap":"Finished"},{"src":"img/gal/bath-2.jpg","cap":"Finished"},{"src":"img/gal/bath-3.jpg","cap":"Finished"},{"src":"img/gal/bath-4.jpg","cap":"Finished"},{"src":"img/gal/bath-5.jpg","cap":"Finished"}],"garage":[{"src":"img/gal/garage-0.jpg","cap":"Before"},{"src":"img/gal/garage-1.jpg","cap":"Finished"},{"src":"img/gal/garage-2.jpg","cap":"Finished"},{"src":"img/gal/garage-3.jpg","cap":"Finished"},{"src":"img/gal/garage-4.jpg","cap":"Finished"}],"highlands":[{"src":"img/gal/highlands-0.jpg","cap":"Before"},{"src":"img/gal/highlands-1.jpg","cap":"Finished"},{"src":"img/gal/highlands-2.jpg","cap":"Finished"},{"src":"img/gal/highlands-3.jpg","cap":"Finished"},{"src":"img/gal/highlands-4.jpg","cap":"Finished"}],"porch":[{"src":"img/gal/porch-0.jpg","cap":"Before"},{"src":"img/gal/porch-1.jpg","cap":"During"},{"src":"img/gal/porch-2.jpg","cap":"Finished"}],"landing":[{"src":"img/gal/landing-0.jpg","cap":"The rot"},{"src":"img/gal/landing-1.jpg","cap":"Repair in progress"},{"src":"img/gal/landing-2.jpg","cap":"Finished"},{"src":"img/gal/landing-3.jpg","cap":"Finished"}]};
+
+  const lb=document.getElementById('lb'), lbImg=document.getElementById('lbImg'),
+        lbCap=document.getElementById('lbCap'), lbIdx=document.getElementById('lbIdx'),
+        lbName=document.getElementById('lbName'), lbEye=document.getElementById('lbEyebrow'),
+        lbDots=document.getElementById('lbDots');
+  let shots=[], at=0, lastFocus=null;
+
+  function paint(){
+    const s=shots[at];
+    lbImg.src=s.src; lbImg.alt=s.cap;
+    lbCap.textContent=s.cap;
+    lbIdx.textContent=(at+1)+' / '+shots.length;
+    [...lbDots.children].forEach((d,i)=>d.classList.toggle('on',i===at));
+    // warm the neighbours so paging feels instant
+    [at+1,at-1].forEach(i=>{ if(shots[i]){ const p=new Image(); p.src=shots[i].src; } });
+  }
+  function openLB(slug,el){
+    shots=GALLERIES[slug]; if(!shots||!shots.length) return;
+    at=0; lastFocus=el;
+    lbName.textContent=el.querySelector('h3').textContent;
+    lbEye.textContent=el.querySelector('.eyebrow').textContent;
+    lbDots.innerHTML=shots.map((_,i)=>'<button aria-label="Photo '+(i+1)+'"></button>').join('');
+    [...lbDots.children].forEach((d,i)=>d.onclick=()=>{at=i;paint();});
+    lb.classList.add('open'); document.body.classList.add('lb-lock');
+    paint(); document.getElementById('lbClose').focus();
+  }
+  function closeLB(){
+    lb.classList.remove('open'); document.body.classList.remove('lb-lock');
+    lbImg.src=''; if(lastFocus) lastFocus.focus();
+  }
+  const step=n=>{ at=(at+n+shots.length)%shots.length; paint(); };
+
+  document.querySelectorAll('.proj[data-project]').forEach(el=>{
+    el.addEventListener('click',()=>openLB(el.dataset.project,el));
+    el.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLB(el.dataset.project,el); }
+    });
+  });
+  document.getElementById('lbClose').addEventListener('click',closeLB);
+  document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();step(-1);});
+  document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();step(1);});
+  lb.addEventListener('click',e=>{ if(e.target===lb||e.target.id==='lbStage') closeLB(); });
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') closeLB();
+    else if(e.key==='ArrowRight') step(1);
+    else if(e.key==='ArrowLeft') step(-1);
+  });
+  // swipe
+  let x0=null;
+  lb.addEventListener('touchstart',e=>{x0=e.changedTouches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',e=>{
+    if(x0===null) return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>45) step(dx<0?1:-1);
+    x0=null;
+  },{passive:true});
 
   // demo form
   function submitForm(e){
