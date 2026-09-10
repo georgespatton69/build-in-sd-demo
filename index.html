@@ -66,10 +66,22 @@
   .hero h1{font-size:clamp(42px,5.6vw,80px);line-height:1.18;color:#fff;margin:20px 0 22px;letter-spacing:.3px;}
   .hero h1 i{font-style:normal;color:var(--accent-tint);display:block;}
 
+  /* hero copy fades up in sequence, then the accent line builds on top of it */
+  .hero .eyebrow,.hero h1,.hero p,.hero-cta{
+    opacity:0;animation:heroFade .8s cubic-bezier(.2,.7,.3,1) forwards;}
+  .hero .eyebrow{animation-delay:.08s;}
+  .hero h1{animation-delay:.20s;}
+  .hero p{animation-delay:.50s;}
+  .hero-cta{animation-delay:.70s;}
+  @keyframes heroFade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  /* the cue is centred with translateX(-50%), so it fades on opacity only and keeps its bob */
+  .hero .scrollcue{opacity:0;animation:cueIn .8s ease 1.7s forwards,bob 2s ease-in-out 2.5s infinite;}
+  @keyframes cueIn{to{opacity:1;}}
+
   /* headline builds itself: each letter is set into place like a piece being fitted */
   .hero h1 .w{display:inline-block;white-space:nowrap;}
   .hero h1 .c{display:inline-block;opacity:0;will-change:transform,opacity;
-    animation:setPiece .74s cubic-bezier(.22,.68,.3,1) both;animation-delay:var(--d,0s);}
+    animation:setPiece 1s cubic-bezier(.22,.68,.3,1) both;animation-delay:var(--d,0s);}
   @keyframes setPiece{
     0%  {opacity:0;transform:translateY(-.72em) rotate(var(--r,-7deg)) scale(1.05);}
     45% {opacity:1;}
@@ -383,8 +395,10 @@
     .lb-cap{font-size:11.5px;}
   }
   @media(prefers-reduced-motion:reduce){
-    .hero .kb,.scrollcue{animation:none;}
+    .hero .kb{animation:none;}
     .hero h1 .c{animation:none;opacity:1;transform:none;}
+    .hero .eyebrow,.hero h1,.hero p,.hero-cta{animation:none;opacity:1;transform:none;}
+    .hero .scrollcue{animation:none;opacity:1;}
     .reveal,.flip{transition:none;opacity:1;transform:none;}
   }
 </style>
@@ -903,7 +917,8 @@
             const c = document.createElement('span');
             c.className = 'c';
             c.textContent = ch;
-            c.style.setProperty('--d', (0.15 + n * 0.035).toFixed(3) + 's');
+            // starts once the headline fade has landed, then a slow, deliberate stagger
+            c.style.setProperty('--d', (1.0 + n * 0.065).toFixed(3) + 's');
             // alternate the lean so the letters do not all tip the same way
             c.style.setProperty('--r', ((n % 2 ? 1 : -1) * (6 + (n % 3) * 2)) + 'deg');
             n++;
