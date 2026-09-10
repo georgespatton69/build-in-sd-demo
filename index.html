@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<!--
+  Build in SD. Landing page (Direction B: Cinematic)
+  Copy and photography sourced from the client's live site, buildinsd.com (Squarespace).
+  STILL NEEDED FROM CLIENT:
+    CSLB license number · physical/mailing address · social profile links ·
+    form endpoint (currently a demo handler) · Google Business Profile link for reviews
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build in SD | San Diego Building, Remodeling, Tile &amp; Finish Carpentry</title>
+<meta name="description" content="Licensed California general contractor with 25+ years experience serving San Diego. Kitchen remodels, bathroom remodels, home additions, ADUs, tile and finish carpentry. Licensed and insured. Free estimates.">
+<link rel="icon" type="image/png" href="img/logo-ink.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --black:#0E0E10; --black-soft:#16161a; --ink:#16140f; --muted:#8a857c; --muted-light:#bdb6a7;
+    --warm:#f7f3ec; --warm-2:#efe9dd; --paper:#ffffff; --line:#e2dccd; --line-dark:#2a2a30;
+    --accent:#5b7fa6; --accent-dark:#41617f; --accent-tint:#9bb4cf;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);background:var(--paper);line-height:1.65;overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:'Cardo',serif;font-weight:400;line-height:1.08;overflow-wrap:break-word;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;padding:15px 28px;border-radius:2px;
+    font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--accent);
+    cursor:pointer;transition:.25s;}
+  .btn:hover{background:#fff;color:var(--black);border-color:#fff;}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);}
+  .btn-ghost:hover{background:#fff;color:var(--black);border-color:#fff;}
+  .btn-dark{background:var(--black);border-color:var(--black);}
+  .btn-dark:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s;}
+  header.nav .bar{display:flex;align-items:center;justify-content:space-between;height:82px;transition:.35s;}
+  .brand{display:flex;align-items:center;}
+  .brand img{height:54px;width:auto;transition:.35s;}
+  header.nav.scrolled .brand img{height:44px;}
+  .nav-links{display:flex;gap:30px;align-items:center;font-size:14px;letter-spacing:.04em;}
+  .nav-links a.lnk{color:rgba(255,255,255,.88);transition:.2s;}
+  .nav-links a.lnk:hover{color:#fff;}
+  .nav-phone{font-family:'Cardo',serif;font-size:18px;color:#fff;white-space:nowrap;}
+  header.nav.scrolled{background:var(--black);box-shadow:0 6px 30px rgba(0,0,0,.4);}
+  header.nav.scrolled .bar{height:66px;}
+  .hamb{display:none;font-size:22px;color:#fff;background:none;border:none;cursor:pointer;}
+  .mobile-menu{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:center;}
+  .hero .kb{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1900&q=80') center/cover;
+    transform:scale(1.12);animation:kb 18s ease-in-out infinite alternate;}
+  @keyframes kb{from{transform:scale(1.12) translate(0,0);}to{transform:scale(1.2) translate(-2%,-2%);}}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,9,.88) 0%,rgba(8,8,9,.55) 52%,rgba(8,8,9,.2) 100%);}
+  .hero .sweep{position:absolute;top:0;left:0;height:100%;width:0;background:var(--accent);z-index:2;animation:sweep 2.6s cubic-bezier(.7,0,.2,1) .25s forwards;}
+  @keyframes sweep{0%{width:0;}45%{width:46%;}100%{width:0;left:46%;}}
+  .hero-content{position:relative;z-index:3;color:#fff;max-width:760px;}
+  .hero .eyebrow{color:var(--accent-tint);}
+  .hero h1{font-size:clamp(42px,5.6vw,80px);line-height:1.18;color:#fff;margin:20px 0 22px;letter-spacing:.3px;}
+  .hero h1 i{font-style:normal;color:var(--accent-tint);}
+  .hero p{font-size:19px;font-weight:300;max-width:540px;color:#e8e5e0;}
+  .hero-cta{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;align-items:center;}
+  .scrollcue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.6);font-size:20px;animation:bob 2s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+  /* ---------- HERO SHOWCASE STRIP ---------- */
+  .hero-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--black);}
+  .hs{position:relative;height:340px;overflow:hidden;}
+  .hs img{width:100%;height:100%;object-fit:cover;filter:grayscale(.2);transition:1s;}
+  .hs:hover img{transform:scale(1.07);filter:none;}
+  .hs .cap{position:absolute;left:16px;right:16px;bottom:16px;}
+  .hs .cap .eyebrow{display:inline-block;color:#fff;font-size:11px;background:var(--accent);padding:7px 15px;border-radius:30px;}
+  .hs .cap h3{color:#fff;font-size:22px;margin-top:9px;line-height:1.1;text-shadow:0 2px 16px rgba(0,0,0,.75);}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--black);border-top:1px solid var(--line-dark);}
+  .trust .row{display:flex;align-items:center;justify-content:space-between;gap:22px;padding:20px 0;flex-wrap:wrap;color:#cfcac2;font-size:14px;}
+  .trust b{font-family:'Cardo',serif;color:#fff;font-weight:400;}
+  .trust i{color:var(--accent-tint);margin-right:9px;}
+
+  /* ---------- STATS ---------- */
+  .stats{background:var(--black);color:#fff;padding:30px 0 86px;}
+  .stats .lead{max-width:760px;margin:0 auto 52px;text-align:center;font-size:20px;font-weight:300;color:#d9d4cc;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center;}
+  .stat .num{font-family:'Cardo',serif;font-size:58px;line-height:1;color:#fff;}
+  .stat .num span{color:var(--accent);}
+  .stat .lbl{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#8a857c;margin-top:12px;}
+
+  /* ---------- SECTION SHELL ---------- */
+  .sec{padding:96px 0;}
+  .sec.warm{background:var(--warm);}
+  .sec-head{max-width:660px;margin-bottom:52px;}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .sec-head h2{font-size:clamp(32px,3.8vw,50px);margin:14px 0 16px;}
+  .sec-head h2 i{font-style:normal;color:var(--accent);}
+  .sec-head p{font-size:17px;color:var(--muted);}
+
+  /* ---------- SERVICES ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .svc{background:#fff;border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:.4s;}
+  .svc:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(0,0,0,.12);}
+  .svc .ph{aspect-ratio:16/10;overflow:hidden;}
+  .svc .ph img{width:100%;height:100%;object-fit:cover;transition:.7s;}
+  .svc:hover .ph img{transform:scale(1.07);}
+  .svc-body{padding:28px 26px 30px;display:flex;flex-direction:column;flex:1;}
+  .svc-body .eyebrow{font-size:11px;}
+  .svc-body h3{font-size:26px;margin:10px 0 10px;}
+  .svc-body p{font-size:14.5px;color:var(--muted);flex:1;}
+  .svc-body .more{margin-top:20px;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;}
+  .svc-body .more i{transition:.3s;}
+  .svc:hover .svc-body .more i{transform:translateX(5px);}
+
+  /* ---------- COMPACT SERVICE LIST ---------- */
+  .svc-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px;}
+  .mini{background:#fff;padding:28px 26px;transition:.3s;}
+  .mini:hover{background:var(--paper);box-shadow:inset 0 0 0 2px var(--accent);}
+  .mini i{color:var(--accent);font-size:19px;}
+  .mini h4{font-size:20px;margin:13px 0 8px;}
+  .mini p{font-size:14px;color:var(--muted);}
+
+  /* ---------- CHECKLIST (kitchen + bath detail) ---------- */
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  .detail h3{font-size:30px;margin-bottom:8px;}
+  .detail > p{font-size:15.5px;color:var(--muted);margin-bottom:22px;}
+  .detail .shot{aspect-ratio:16/10;border-radius:3px;overflow:hidden;margin-bottom:26px;}
+  .detail .shot img{width:100%;height:100%;object-fit:cover;}
+  .checks{list-style:none;}
+  .checks li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);font-size:15px;}
+  .checks li i{color:var(--accent);font-size:13px;margin-top:6px;}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .proj{position:relative;overflow:hidden;border-radius:3px;height:340px;display:block;}
+  .proj img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25);transition:1s;}
+  .proj:hover img{transform:scale(1.07);filter:none;}
+  .proj .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:26px 24px;
+    background:linear-gradient(0deg,rgba(8,8,9,.88) 0%,rgba(8,8,9,.15) 58%,transparent 100%);color:#fff;}
+  .proj .cap .eyebrow{color:var(--accent-tint);font-size:11px;}
+  .proj .cap h3{color:#fff;font-size:23px;margin-top:6px;line-height:1.12;}
+  .proj .cap p{font-size:13.5px;color:#d9d4cc;margin-top:7px;line-height:1.5;}
+  .proj-foot{text-align:center;margin-top:46px;}
+
+  /* ---------- WHO WE ARE ---------- */
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .who .img{aspect-ratio:4/3;border-radius:3px;overflow:hidden;}
+  .who .img img{width:100%;height:100%;object-fit:cover;}
+  .who h2{font-size:clamp(30px,3.4vw,44px);margin:14px 0 18px;}
+  .who h2 i{font-style:normal;color:var(--accent);}
+  .who p{font-size:16.5px;color:var(--muted);margin-bottom:18px;}
+  .who ul{list-style:none;margin-top:24px;}
+  .who li{display:flex;gap:13px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line);font-size:15.5px;color:var(--ink);}
+  .who li i{color:var(--accent);margin-top:5px;}
+
+  /* ---------- FOUNDERS ---------- */
+  .bios{display:grid;grid-template-columns:1fr 1fr;gap:54px;}
+  .bio .ph{aspect-ratio:4/3;border-radius:3px;overflow:hidden;margin-bottom:24px;}
+  .bio .ph img{width:100%;height:100%;object-fit:cover;}
+  .bio h3{font-size:29px;margin-bottom:4px;}
+  .bio .role{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+  .bio p{font-size:15.5px;color:var(--muted);margin-bottom:14px;}
+  .partner-note{max-width:860px;margin:54px auto 0;text-align:center;font-family:'Cardo',serif;font-size:20px;line-height:1.6;color:var(--ink);}
+
+  /* ---------- PROCESS ---------- */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.14);}
+  .step{padding:34px 24px 36px;border-right:1px solid rgba(255,255,255,.14);}
+  .step:last-child{border-right:none;}
+  .step .n{font-family:'Cardo',serif;font-size:15px;color:var(--accent-tint);letter-spacing:.12em;}
+  .step h4{color:#fff;font-size:22px;margin:12px 0 9px;}
+  .step p{font-size:14px;color:var(--muted-light);}
+
+  /* ---------- REVIEWS ---------- */
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .rev{background:#fff;border:1px solid var(--line);border-radius:3px;padding:32px 30px;display:flex;flex-direction:column;}
+  .rev .mark{font-family:'Cardo',serif;font-size:46px;line-height:.6;color:var(--accent);margin-bottom:18px;}
+  .rev p{font-family:'Cardo',serif;font-size:18px;line-height:1.55;color:var(--ink);font-style:italic;flex:1;}
+  .rev .who-line{margin-top:22px;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.04em;}
+  .rev .who-line b{font-weight:600;display:block;font-style:normal;}
+  .rev-wide{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:3px;padding:36px 38px;}
+  .rev-wide .mark{font-family:'Cardo',serif;font-size:46px;line-height:.6;color:var(--accent);margin-bottom:18px;}
+  .rev-wide p{font-family:'Cardo',serif;font-size:18.5px;line-height:1.6;color:var(--ink);font-style:italic;}
+  .rev-wide details{margin-top:14px;}
+  .rev-wide details p{margin-top:16px;}
+  .rev-wide summary{list-style:none;cursor:pointer;font-family:'Jost',sans-serif;font-style:normal;font-weight:500;font-size:12.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:8px;padding:6px 0;}
+  .rev-wide summary::-webkit-details-marker{display:none;}
+  .rev-wide summary i{transition:.3s;}
+  .rev-wide details[open] summary i{transform:rotate(180deg);}
+  .rev-wide .who-line{margin-top:22px;font-size:13px;letter-spacing:.04em;}
+  .rev-wide .who-line b{font-weight:600;display:block;}
+  .rev-foot{text-align:center;margin-top:40px;}
+
+  /* ---------- SERVICE AREAS ---------- */
+  .areas-section{position:relative;background:url('la-jolla.jpg') center/cover no-repeat fixed;}
+  .areas-section::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,9,.86) 0%,rgba(8,8,9,.6) 55%,rgba(8,8,9,.35) 100%);}
+  .areas-section .wrap{position:relative;z-index:2;}
+  .areas-section .sec-head h2{color:#fff;}
+  .areas-section .sec-head h2 i{color:var(--accent-tint);}
+  .areas-section .sec-head p{color:#d9d4cc;}
+  .areas{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;}
+  .areas span{font-size:14px;letter-spacing:.03em;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);padding:10px 18px;border-radius:30px;color:#fff;backdrop-filter:blur(4px);}
+
+  /* ---------- CTA + FORM ---------- */
+  .cta{background:var(--black);color:#fff;padding:96px 0;}
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .cta h2{font-size:clamp(32px,3.8vw,52px);color:#fff;}
+  .cta h2 i{font-style:normal;color:var(--accent-tint);}
+  .cta p{color:#bdb6a7;font-size:18px;margin:16px 0 24px;}
+  .cta .contact-line{display:flex;align-items:center;gap:12px;color:#e8e5e0;font-size:16px;margin-top:14px;}
+  .cta .contact-line i{color:var(--accent-tint);width:20px;text-align:center;}
+  form{background:#fff;border-radius:4px;padding:34px 32px;color:var(--ink);}
+  form h3{font-size:24px;margin-bottom:6px;}
+  form .fsub{font-size:14px;color:var(--muted);margin-bottom:22px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+  .field input,.field select,.field textarea{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:2px;font-family:'Jost',sans-serif;font-size:15px;color:var(--ink);background:#fff;}
+  .field textarea{resize:vertical;min-height:84px;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);}
+  form .btn{width:100%;justify-content:center;margin-top:6px;}
+  .form-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#08080a;color:#8a857c;padding:64px 0 30px;font-size:14px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+  footer .brand img{height:66px;margin-bottom:18px;}
+  footer p{margin-bottom:10px;line-height:1.7;max-width:340px;}
+  footer h5{color:#fff;font-family:'Jost',sans-serif;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:9px;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{border-top:1px solid #1c1c20;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;}
+
+  /* ---------- REVEAL ANIMATIONS ---------- */
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity 1.2s ease-in-out,transform 1.2s ease-in-out;}
+  .reveal.in{opacity:1;transform:none;}
+  .flip{opacity:0;transform:perspective(2200px) rotateY(-34deg);transform-origin:left center;transition:opacity 1.15s ease-in-out,transform 1.15s ease-in-out;}
+  .flip.in{opacity:1;transform:none;}
+  .d1{transition-delay:.12s;}.d2{transition-delay:.26s;}.d3{transition-delay:.4s;}.d4{transition-delay:.54s;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .nav-links{display:none;}
+    .hamb{display:block;}
+    .brand img{height:44px;}
+    .mobile-menu{display:block;position:fixed;top:0;right:0;width:80%;max-width:330px;height:100vh;background:var(--black);z-index:200;
+      padding:90px 32px 32px;transform:translateX(100%);transition:transform .35s;box-shadow:-10px 0 40px rgba(0,0,0,.5);overflow-y:auto;}
+    .mobile-menu.open{transform:translateX(0);}
+    .mobile-menu a{display:block;color:#fff;font-size:18px;padding:15px 0;border-bottom:1px solid #1f1f24;}
+    .mobile-menu .btn{width:100%;justify-content:center;margin-top:24px;}
+    .mm-close{position:absolute;top:24px;right:28px;font-size:26px;color:#fff;background:none;border:none;}
+    .mm-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;}
+    .mm-backdrop.open{display:block;}
+    .trust .row{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;font-size:12.5px;padding:18px 0;}
+    .trust i{margin-right:7px;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);gap:42px 20px;}
+    .hero-strip{grid-template-columns:1fr;}
+    .hs{height:260px;}
+    .svc-grid,.proj-grid,.rev-grid,.svc-mini,.detail-grid,.bios{grid-template-columns:1fr;}
+    .detail-grid{gap:48px;}
+    .bios{gap:40px;}
+    .hide-mobile{display:none;}
+    .who,.cta-grid{grid-template-columns:1fr;gap:36px;}
+    .steps{grid-template-columns:1fr;}
+    .step{border-right:none;border-bottom:1px solid rgba(255,255,255,.14);}
+    .foot-grid{grid-template-columns:1fr;gap:32px;}
+    .hero{height:auto;min-height:100vh;min-height:100dvh;padding:96px 0 44px;display:flex;align-items:center;}
+    .hero .scrim{background:linear-gradient(180deg,rgba(8,8,9,.84),rgba(8,8,9,.7));}
+    .hero-content{max-width:none;width:100%;}
+    .hero h1{font-size:37px;}
+    .hero p{font-size:16px;}
+    .areas-section{background-attachment:scroll;}
+    .sec{padding:64px 0;}
+    .rev-wide{padding:28px 24px;}
+    .scrollcue{display:none;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .hero .kb,.hero .sweep,.scrollcue{animation:none;}
+    .reveal,.flip{transition:none;opacity:1;transform:none;}
+    .hero .sweep{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="wrap bar">
+      <a href="#" class="brand" aria-label="Build in SD home"><img src="img/logo-white.png" alt="Build in SD"></a>
+      <nav class="nav-links">
+        <a class="lnk" href="#services">Services</a>
+        <a class="lnk" href="#projects">Projects</a>
+        <a class="lnk" href="#about">About</a>
+        <a class="lnk" href="#reviews">Testimonials</a>
+        <a class="nav-phone" href="tel:8584724640">858-472-4640</a>
+        <a class="btn" href="#contact">Free Estimate</a>
+      </nav>
+      <button class="hamb" id="hamb" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </header>
+  <div class="mm-backdrop" id="backdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu">
+    <button class="mm-close" id="mmClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Testimonials</a>
+    <a href="tel:8584724640">858-472-4640</a>
+    <a href="mailto:buildinsd@gmail.com">buildinsd@gmail.com</a>
+    <a class="btn" href="#contact">Free Estimate</a>
+  </aside>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="kb"></div>
+    <div class="scrim"></div>
+    <div class="sweep"></div>
+    <div class="wrap hero-content">
+      <div class="eyebrow">San Diego Born &amp; Raised &middot; General Contractor</div>
+      <h1>Young enough to <i>care.</i> Skilled enough to prove it.</h1>
+      <p>I'm not coasting on a 40-year-old reputation. I'm building one, one San Diego home at a time, which means your project gets everything I've got.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#contact">Request a Free Estimate</a>
+        <a class="btn btn-ghost" href="#projects">See Our Work</a>
+      </div>
+    </div>
+    <a href="#trust" class="scrollcue"><i class="fa-solid fa-chevron-down"></i></a>
+  </section>
+
+  <!-- HERO SHOWCASE STRIP -->
+  <section class="hero-strip">
+    <div class="hs"><img src="img/proj-interior.jpg" alt="Complete interior remodel with new kitchen"><div class="cap"><div class="eyebrow">Complete Interior Remodel</div><h3>Kitchen &amp; Bathroom</h3></div></div>
+    <div class="hs"><img src="img/proj-curb-appeal.jpg" alt="Structural beam repair and entry gate replacement"><div class="cap"><div class="eyebrow">Curb Appeal</div><h3>Beam Repair &amp; Entry Gates</h3></div></div>
+    <div class="hs"><img src="img/proj-bath.jpg" alt="Custom tile shower with herringbone accent panel" style="object-position:center 42%;"><div class="cap"><div class="eyebrow">Bathroom Remodel</div><h3>Custom Tile Shower</h3></div></div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust" id="trust">
+    <div class="wrap row">
+      <span><i class="fa-solid fa-shield-halved"></i><b>Licensed &amp; Insured</b></span>
+      <span><i class="fa-solid fa-hammer"></i><b>25+ Years</b> of experience</span>
+      <span><i class="fa-solid fa-clipboard-check"></i><b>Free Estimates</b></span>
+      <span><i class="fa-solid fa-location-dot"></i><b>Locally Owned</b></span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap">
+      <p class="lead reveal">Build in SD has served San Diego and the greater Southern California area for over 25 years. We specialize in remodels, tile installations, finish carpentry, and home additions, combining solid construction practices with a design-trained eye for proportion, layout, and detail.</p>
+      <div class="stats-grid">
+        <div class="stat reveal d1"><div class="num" data-count="25" data-suffix="+">0</div><div class="lbl">Years of Experience</div></div>
+        <div class="stat reveal d2"><div class="num" data-count="2" data-suffix="">0</div><div class="lbl">Founding Partners</div></div>
+        <div class="stat reveal d3"><div class="num" data-count="11" data-suffix="">0</div><div class="lbl">Featured Projects</div></div>
+        <div class="stat reveal d4"><div class="num"><span>1915</span></div><div class="lbl">Oldest Home Restored</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec warm" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Services Offered</div>
+        <h2>From small home repairs to <i>full-scale construction.</i></h2>
+        <p>We handle all types of work, including repairs, remodeling, additions, ADUs, and new builds, delivering high-quality craftsmanship with a focus on durability and clean, modern finishes.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc flip d1">
+          <div class="ph"><img src="img/kitchen-4.jpg" alt="Kitchen remodeling in San Diego"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Kitchen Remodeling</h3><p>Transforming your space with custom designs and high-quality upgrades. From cabinetry and countertops to layout redesign and structural improvements, we manage the entire remodeling process.</p><a class="more" href="#kitchen-bath">What's included <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="svc flip d2">
+          <div class="ph"><img src="img/bath-5.jpg" alt="Bathroom remodeling in San Diego" style="object-position:center 26%;"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Bathroom Remodeling</h3><p>Whether you are upgrading fixtures, improving layout, or creating a completely new design, our team delivers high-quality craftsmanship and attention to detail.</p><a class="more" href="#kitchen-bath">What's included <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="svc flip d3">
+          <div class="ph"><img src="img/proj-cottage.jpg" alt="Home additions and accessory dwelling units"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Additions &amp; ADUs</h3><p>We handle every phase including design coordination, permitting, and construction, ensuring your ADU meets all local San Diego requirements while maximizing functionality, efficiency, and value.</p><a class="more" href="#contact">Talk it through <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+      </div>
+
+      <div class="svc-mini reveal">
+        <div class="mini"><i class="fa-solid fa-house-chimney"></i><h4>Home Additions &amp; New Construction</h4><p>Expanding and building homes tailored to your needs.</p></div>
+        <div class="mini"><i class="fa-solid fa-fire-burner"></i><h4>Outdoor Living Spaces</h4><p>Creating custom decks, kitchens, entertainment areas, and more.</p></div>
+        <div class="mini"><i class="fa-solid fa-door-open"></i><h4>Windows, Doors &amp; Exterior Finishes</h4><p>Installation, repair, and updates for a polished exterior.</p></div>
+        <div class="mini"><i class="fa-solid fa-ruler-combined"></i><h4>Custom Carpentry &amp; Woodworking</h4><p>Built-ins, trim, cabinetry, and fine finish details.</p></div>
+        <div class="mini"><i class="fa-solid fa-helmet-safety"></i><h4>Structural Repairs &amp; Retrofits</h4><p>Foundation, framing, and structural updates for safety and durability.</p></div>
+        <div class="mini"><i class="fa-solid fa-droplet"></i><h4>Damage Restoration</h4><p>Fire, flood, and other disaster repair services.</p></div>
+        <div class="mini"><i class="fa-solid fa-screwdriver-wrench"></i><h4>General Repairs &amp; Maintenance</h4><p>Stucco, drywall, electrical, and more to keep your home in top shape.</p></div>
+        <div class="mini"><i class="fa-solid fa-trowel-bricks"></i><h4>Tile &amp; Stone Installation</h4><p>Custom tile and stone work, including steam showers and full wall treatments.</p></div>
+        <div class="mini"><i class="fa-solid fa-file-signature"></i><h4>Permit Coordination</h4><p>We manage the city paperwork and inspections so your project stays on track.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KITCHEN + BATH DETAIL -->
+  <section class="sec" id="kitchen-bath">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">In Detail</div>
+        <h2>Kitchens and baths, <i>start to finish.</i></h2>
+        <p>We manage every stage of the remodeling process to ensure a smooth and successful project.</p>
+      </div>
+      <div class="detail-grid">
+        <div class="detail reveal d1">
+          <div class="shot"><img src="img/kitchen-2.jpg" alt="Custom kitchen cabinetry and countertops"></div>
+          <h3>Kitchen Remodeling in San Diego</h3>
+          <p>Whether you are updating an older kitchen or completely redesigning the space, our team delivers high-quality craftsmanship and attention to detail.</p>
+          <ul class="checks">
+            <li><i class="fa-solid fa-check"></i>Custom cabinetry installation</li>
+            <li><i class="fa-solid fa-check"></i>Countertops and backsplash upgrades</li>
+            <li><i class="fa-solid fa-check"></i>Structural wall modifications</li>
+            <li><i class="fa-solid fa-check"></i>Electrical and lighting improvements</li>
+            <li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li>
+            <li><i class="fa-solid fa-check"></i>Flooring replacement</li>
+            <li><i class="fa-solid fa-check"></i>Layout redesign</li>
+            <li><i class="fa-solid fa-check"></i>Permit coordination</li>
+          </ul>
+        </div>
+        <div class="detail reveal d2">
+          <div class="shot"><img src="img/bath-2.jpg" alt="Custom hex tile walk-in shower with frameless glass"></div>
+          <h3>Bathroom Remodeling in San Diego</h3>
+          <p>From tile installation and custom vanities to plumbing upgrades and modern finishes, we manage every stage of the remodeling process.</p>
+          <ul class="checks">
+            <li><i class="fa-solid fa-check"></i>Custom shower and bathtub installation</li>
+            <li><i class="fa-solid fa-check"></i>Tile flooring and wall tile, including steam showers</li>
+            <li><i class="fa-solid fa-check"></i>Vanity and countertop upgrades</li>
+            <li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li>
+            <li><i class="fa-solid fa-check"></i>Lighting and electrical upgrades</li>
+            <li><i class="fa-solid fa-check"></i>Layout redesign</li>
+            <li><i class="fa-solid fa-check"></i>Waterproofing and ventilation improvements</li>
+            <li><i class="fa-solid fa-check"></i>Permit coordination</li>
+          </ul>
+        </div>
+      </div>
+      <div class="proj-foot reveal"><a class="btn btn-dark" href="#contact">Request a Free Estimate</a></div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section class="sec areas-section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Where We Work</div>
+        <h2>Serving San Diego <i>County.</i></h2>
+        <p>Building across the coast and inland communities, from the La Jolla bluffs to the backcountry.</p>
+      </div>
+      <div class="areas reveal">
+        <span>La Jolla</span><span>Carlsbad</span><span>Encinitas</span><span>Del Mar</span><span>Point Loma</span><span>Coronado</span>
+        <span>Solana Beach</span><span>Rancho Santa Fe</span><span>North Park</span><span>Chula Vista</span><span>Poway</span><span>Escondido</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="sec warm" id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Past Projects</div>
+        <h2>Recent work around <i>San Diego.</i></h2>
+        <p>A selection of homes we have reshaped. Hover to see them come to life.</p>
+      </div>
+      <div class="proj-grid">
+        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/project-three-8zgh7-za8fz-btffx" target="_blank" rel="noopener">
+          <img src="img/proj-interior.jpg" alt="Complete interior remodel, kitchen and bathroom">
+          <div class="cap"><div class="eyebrow">Complete Interior Remodel</div><h3>Kitchen &amp; Bathroom</h3><p>Complete remodel of a 1,500 sq. ft. condo (2BR/1.5BA) including full kitchen renovation.</p></div>
+        </a>
+        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/project-two-llrgk-8m5ng-8gx46" target="_blank" rel="noopener">
+          <img src="img/proj-curb-appeal.jpg" alt="Structural beam repair and entry gate replacement">
+          <div class="cap"><div class="eyebrow">Curb Appeal</div><h3>Beam Repair &amp; Entry Gates</h3><p>Rotted wood beam replaced with steel, cabinet installation, and entry gate replacement.</p></div>
+        </a>
+        <a class="proj reveal d3" href="https://www.buildinsd.com/projects/new-portfolio-item-7k2e7" target="_blank" rel="noopener">
+          <img src="img/proj-cottage.jpg" alt="Cottage rebuild, complete renovation">
+          <div class="cap"><div class="eyebrow">Cottage Rebuild</div><h3>1915 Restoration</h3><p>Complete renovation of a 100 year old structure.</p></div>
+        </a>
+        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/project-one-ephnc-p2jtd-jydce" target="_blank" rel="noopener">
+          <img src="img/proj-property-wall.jpg" alt="Retaining wall and red cedar fence">
+          <div class="cap"><div class="eyebrow">Property Wall</div><h3>Retaining Wall &amp; Fence</h3><p>90 ft retaining wall with smooth coat stucco, new red cedar fence and gates.</p></div>
+        </a>
+        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/project-foothill-condo-remodel-7tp7m" target="_blank" rel="noopener">
+          <img src="img/proj-condo.jpg" alt="Complete condo remodel">
+          <div class="cap"><div class="eyebrow">Polo Condo</div><h3>Complete Condo Remodel</h3><p>Complete gut and remodel of a 2BR/2BA condo.</p></div>
+        </a>
+        <a class="proj reveal d3" href="https://www.buildinsd.com/projects/kitchen-addition-zdwkt" target="_blank" rel="noopener">
+          <img src="img/proj-kitchen-add.jpg" alt="Kitchen addition and remodel">
+          <div class="cap"><div class="eyebrow">Addition</div><h3>Kitchen Addition &amp; Remodel</h3><p>Added square footage and a full kitchen rebuild in one phase.</p></div>
+        </a>
+        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/project-new-entry-porch-m49l6" target="_blank" rel="noopener">
+          <img src="img/proj-entry-porch.jpg" alt="New concrete entry porch with Saltillo tile">
+          <div class="cap"><div class="eyebrow">Exterior</div><h3>New Entry Porch</h3><p>10 ft by 5 ft concrete porch with Saltillo tile, stucco, and a copper cap.</p></div>
+        </a>
+        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/project-four-yjynj-4yxzx-7tsga" target="_blank" rel="noopener">
+          <img src="img/proj-landing.jpg" alt="Landing rot repair and stucco patch">
+          <div class="cap"><div class="eyebrow">Landing</div><h3>Rot Repair &amp; Stucco Patch</h3><p>Structural framing repair with stucco patching and painting.</p></div>
+        </a>
+        <a class="proj reveal d3" href="https://www.buildinsd.com/projects/highlands-bathrooms-b5ct9" target="_blank" rel="noopener">
+          <img src="img/proj-highlands.jpg" alt="Master and guest bathrooms remodeled">
+          <div class="cap"><div class="eyebrow">Highlands</div><h3>Master &amp; Guest Baths</h3><p>Two full bathroom remodels completed together.</p></div>
+        </a>
+        <a class="proj reveal d1" href="https://www.buildinsd.com/projects/bathroom-remodel-ldj4e" target="_blank" rel="noopener">
+          <img src="img/proj-bath-2.jpg" alt="Bathroom remodel with double vanity and saltillo tile floor" style="object-position:center 42%;">
+          <div class="cap"><div class="eyebrow">Remodel</div><h3>Bathroom Remodel</h3><p>Full tear-out, waterproofing, and custom tile finish.</p></div>
+        </a>
+        <a class="proj reveal d2" href="https://www.buildinsd.com/projects/garage-remodel-9ty3y" target="_blank" rel="noopener">
+          <img src="img/proj-garage.jpg" alt="Garage remodel">
+          <div class="cap"><div class="eyebrow">Conversion</div><h3>Garage Remodel</h3><p>Garage reworked into clean, usable finished space.</p></div>
+        </a>
+      </div>
+      <div class="proj-foot reveal"><a class="btn btn-dark" href="https://www.buildinsd.com/projects" target="_blank" rel="noopener">View the Full Portfolio</a></div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="sec">
+    <div class="wrap who">
+      <div class="img reveal"><img src="img/team.jpg" alt="Custom redwood deck with ocean view"></div>
+      <div class="reveal d1">
+        <div class="eyebrow">Who We Are</div>
+        <h2>Your trusted partner from small repairs to <i>full-scale builds.</i></h2>
+        <p>Our team works closely with each client to bring their vision to life, offering personalized solutions that balance function, design, and long-term value.</p>
+        <p>With a strong commitment to reliability, clear communication, and attention to detail, Build in SD consistently delivers results that exceed expectations no matter the size or scope of the project.</p>
+        <ul>
+          <li><i class="fa-solid fa-check"></i><span><b>Design-trained eye.</b> Proportion, layout, and detail considered before the first cut.</span></li>
+          <li><i class="fa-solid fa-check"></i><span><b>Solid construction practices.</b> Built for durability, finished clean and modern.</span></li>
+          <li><i class="fa-solid fa-check"></i><span><b>Clear communication.</b> You know where the project stands at every stage.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY / FOUNDERS -->
+  <section class="sec warm" id="about">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Our Story</div>
+        <h2>Decades of hands-on experience, <i>refined craftsmanship.</i></h2>
+        <p>Steven Watson and Pat McLoughlin bring together a shared commitment to excellence.</p>
+      </div>
+      <div class="bios">
+        <div class="bio reveal d1">
+          <div class="ph"><img src="img/steven.jpg" alt="Steven Watson inspecting structural framing" style="object-position:center 65%;"></div>
+          <h3>Steven Watson</h3>
+          <div class="role">Co-Founder</div>
+          <p>Steven began his career working alongside his father at a young age, developing the discipline and attention to detail that have defined his work for over 25 years.</p>
+          <p>He went on to found SW Construction in Santa Barbara, where he built a reputation for delivering thoughtfully executed projects ranging from custom homes to high-end remodels, all defined by precision, quality, and lasting value.</p>
+        </div>
+        <div class="bio reveal d2">
+          <div class="ph"><img src="img/pat.jpg" alt="Pat McLoughlin on site" style="object-position:center 28%;"></div>
+          <h3>Pat McLoughlin</h3>
+          <div class="role">Co-Founder</div>
+          <p>Pat, a San Diego native, studied Construction Technology at Santa Barbara City College and has spent years working throughout Southern California, developing a deep understanding of regional architecture, materials, and elevated design standards.</p>
+          <p>With a focus on residential remodels, custom tile and stone work, and fine finish carpentry, Pat brings a strong eye for detail and a commitment to clean, modern execution.</p>
+        </div>
+      </div>
+      <p class="partner-note reveal">The two first worked together during Pat's time at SBCC, where a shared approach to craftsmanship and problem-solving laid the foundation for a long-standing professional partnership. Today, as co-founders of Build in SD, they combine their experience and design sensibility to deliver tailored, high-quality spaces.</p>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="stats" id="process" style="padding:96px 0;">
+    <div class="wrap">
+      <div class="sec-head center reveal" style="color:#fff;">
+        <div class="eyebrow">How It Works</div>
+        <h2 style="color:#fff;">From conceptualizing to <i>constructing.</i></h2>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><div class="n">Step 01</div><h4>Free Estimate</h4><p>We visit, listen, and scope the work with you. No obligation.</p></div>
+        <div class="step"><div class="n">Step 02</div><h4>Design</h4><p>We coordinate design, materials, and layout around your budget.</p></div>
+        <div class="step"><div class="n">Step 03</div><h4>Permits</h4><p>We handle permit coordination and local requirements.</p></div>
+        <div class="step"><div class="n">Step 04</div><h4>Build</h4><p>Careful planning, clear communication, and steady progress.</p></div>
+        <div class="step"><div class="n">Step 05</div><h4>Walkthrough</h4><p>We finish clean and we do not leave until the detail is right.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="sec" id="reviews">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Testimonials</div>
+        <h2>What our clients <i>say.</i></h2>
+      </div>
+      <div class="rev-grid">
+        <div class="rev reveal d1">
+          <div class="mark">&ldquo;</div>
+          <p>Working with Build in SD was a seamless experience from start to finish. The team was professional, detail-oriented, and easy to communicate with throughout the entire project. Everything was completed on time and on budget, and the quality of work really stands out. I'd highly recommend them to anyone looking for a reliable, high-end contractor.</p>
+          <div class="who-line"><b>Craig S.</b></div>
+        </div>
+        <div class="rev reveal d2">
+          <div class="mark">&ldquo;</div>
+          <p>Choosing Build in SD was unquestionably one of the best decisions we made. Despite the scope of the work, the project was completed efficiently and within the agreed timeline. The finished work is nothing short of impeccable, with a meticulous attention to detail. His expert guidance throughout the process has truly transformed our home into our forever home.</p>
+          <div class="who-line"><b>The Rhodens</b></div>
+        </div>
+        <div class="rev reveal d3">
+          <div class="mark">&ldquo;</div>
+          <p>My wife and I have utilized Build in SD both on our personal residence as well as our rental properties. His quality, attention to detail, cost sensitivity, cleanliness, and communication throughout his projects are superb. We have no hesitation in referring him to friends and without a doubt would use him again in the future.</p>
+          <div class="who-line"><b>The Underwoods</b></div>
+        </div>
+      </div>
+
+      <div class="rev-wide reveal">
+        <div class="mark">&ldquo;</div>
+        <p>We are pleased to give our highest endorsement to Build in SD, and Steve Watson in particular. A few years ago we needed to hoist the front of our house, to replace the rotted wood beam that held it up, with a steel beam. We used that opportunity to also enhance this overall structure to more current earthquake standards. This was no small project.</p>
+        <details>
+          <summary>Read the full review <i class="fa-solid fa-chevron-down"></i></summary>
+          <p>It entailed hoisting up our house, and doing so with the minimal amount of internal damage. It required that we use heavy equipment to transport a very long and heavy steel I-beam over the property wall and into place. We also had to implement pylons with a new vertical steel structure to hold that beam in place in an earthquake. The bottom line is that there was a lot that could go wrong if we hired the wrong person. We spoke with three general contractors, and Steve impressed us greatly. Note that my husband and I both have degrees in engineering, so we knew what we needed to hear.</p>
+          <p>So, we hired Steve, and he executed this project flawlessly. We were so impressed by the quality of his thought and work, that we greatly expanded the scope of our project. We had him add cabinetry throughout our parking structure, build a new custom wood and glass fence along the length of our Japanese courtyard garden, and replace our wooden garage and pedestrian gates with large steel and white glass, shoji-like gates. People constantly tell us how beautiful our property is, with these enhancements executed by Steve.</p>
+          <p>Nothing is ever easy in our relatively small and confined space. So throughout this project, Steve had to constantly determine how best to execute, given the latest set of reoccurring limitations discovered in field. Steve diligently worked through every challenge, providing us with numerous workaround solutions that were brilliant. He is very hands on with his team, so has firsthand knowledge of the issues, has a tremendous amount of experience, and absolutely excels at problem solving, with exceptional creativity and practicality.</p>
+          <p>We found Steve to be fair, honest, professional, organized, a great communicator, and a pleasure to work with. He arrived every morning early, worked late, and so did his team. He says what he is going to do, and then does what he says. He was respectful of our property, did not waste materials, and cleared things out to maintain an orderly workspace. When finished, he cleaned everything up and left us with exceptional results. Steve Watson is incredibly capable, trustworthy, honest and phenomenally talented. We would highly recommend him as a superb general contractor.</p>
+        </details>
+        <div class="who-line"><b>The Johnstons</b></div>
+      </div>
+
+      <div class="rev-foot reveal"><a class="btn btn-dark" href="https://www.buildinsd.com/testimonials" target="_blank" rel="noopener">Read All Testimonials</a></div>
+    </div>
+  </section>
+
+  <!-- CTA + FORM -->
+  <section class="cta" id="contact">
+    <div class="wrap cta-grid">
+      <div class="reveal">
+        <div class="eyebrow">Let's Build</div>
+        <h2>Let's get to <i>work.</i></h2>
+        <p>From conceptualizing to constructing, we're ready to design your dream. We promise a client-centric approach that empowers ideas, eases concerns, and delivers quality craftsmanship we'll all be proud of.</p>
+        <div class="contact-line"><i class="fa-solid fa-phone"></i> <a href="tel:8584724640">858-472-4640</a></div>
+        <div class="contact-line"><i class="fa-solid fa-envelope"></i> <a href="mailto:buildinsd@gmail.com">buildinsd@gmail.com</a></div>
+        <div class="contact-line"><i class="fa-solid fa-location-dot"></i> San Diego, California</div>
+        <div class="contact-line"><i class="fa-solid fa-shield-halved"></i> Licensed &amp; Insured &middot; Free Estimates &middot; Locally Owned</div>
+      </div>
+      <form class="reveal d1" onsubmit="return submitForm(event)">
+        <h3>Request a Free Estimate</h3>
+        <div class="fsub">No obligation. We'll never share your info.</div>
+        <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+        <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="858-472-4640" required></div>
+        <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@example.com"></div>
+        <div class="field"><label>Project Type</label>
+          <select name="project" required>
+            <option value="">Select one</option>
+            <option>Kitchen Remodel</option>
+            <option>Bathroom Remodel</option>
+            <option>Home Addition</option>
+            <option>ADU</option>
+            <option>Outdoor Living Space</option>
+            <option>Custom Carpentry</option>
+            <option>Structural Repair / Retrofit</option>
+            <option>Damage Restoration</option>
+            <option>General Repairs</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Project Details</label><textarea name="details" placeholder="Tell us a bit about the space and what you have in mind."></textarea></div>
+        <button class="btn" type="submit">Request My Estimate</button>
+        <div class="form-note" id="formNote">We typically reply within one business day.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="brand"><img src="img/logo-white.png" alt="Build in SD"></div>
+          <p>Licensed California general contractor serving San Diego and the greater Southern California area for over 25 years. Remodels, tile installations, finish carpentry, and home additions.</p>
+        </div>
+        <div>
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Kitchen Remodeling</a></li>
+            <li><a href="#services">Bathroom Remodeling</a></li>
+            <li><a href="#services">Additions &amp; ADUs</a></li>
+            <li><a href="#services">Outdoor Living Spaces</a></li>
+            <li><a href="#services">Custom Carpentry</a></li>
+            <li><a href="#services">Structural Repairs</a></li>
+            <li><a href="#services">Damage Restoration</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="tel:8584724640">858-472-4640</a></li>
+            <li><a href="mailto:buildinsd@gmail.com">buildinsd@gmail.com</a></li>
+            <li>San Diego, California</li>
+            <li>Licensed &amp; Insured</li>
+            <li>Free Estimates</li>
+            <li>Locally Owned</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 Build in SD. All rights reserved.</span>
+        <span>Licensed &amp; Insured &middot; Free Estimates &middot; Locally Owned</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  // sticky nav state
+  const nav=document.getElementById('nav');
+  const onScroll=()=>{nav.classList.toggle('scrolled',window.scrollY>40);};
+  window.addEventListener('scroll',onScroll);onScroll();
+
+  // mobile menu
+  const mm=document.getElementById('mobileMenu'),bd=document.getElementById('backdrop');
+  const openMM=()=>{mm.classList.add('open');bd.classList.add('open');};
+  const closeMM=()=>{mm.classList.remove('open');bd.classList.remove('open');};
+  document.getElementById('hamb').addEventListener('click',openMM);
+  document.getElementById('mmClose').addEventListener('click',closeMM);
+  bd.addEventListener('click',closeMM);
+  mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMM));
+
+  // scroll reveals
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16});
+  document.querySelectorAll('.reveal,.flip').forEach(el=>io.observe(el));
+
+  // animated counters
+  const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){
+    const el=e.target,t=+el.dataset.count,suf=el.dataset.suffix||'';let n=0;const step=Math.max(1,Math.round(t/45));
+    const tick=()=>{n=Math.min(t,n+step);el.textContent=n+suf;if(n<t)requestAnimationFrame(tick);};tick();cio.unobserve(el);
+  }});},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+  // demo form
+  function submitForm(e){
+    e.preventDefault();
+    document.getElementById('formNote').innerHTML='<span style="color:#2f6d4f;font-weight:600;">Thanks! This is a demo form. We\'ll wire it to email or your CRM before launch.</span>';
+    e.target.querySelector('button').textContent='Request Received';
+    return false;
+  }
+</script>
+</body>
+</html>
