@@ -3,15 +3,15 @@
   Build in SD. Landing page (Direction B: Cinematic)
   Copy and photography sourced from the client's live site, buildinsd.com (Squarespace).
   STILL NEEDED FROM CLIENT:
-    CSLB license number · physical/mailing address · social profile links ·
-    form endpoint (currently a demo handler) · Google Business Profile link for reviews
+    physical/mailing address · social profile links ·
+    Google Business Profile link for reviews
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build in SD | San Diego Building, Remodeling, Tile &amp; Finish Carpentry</title>
-<meta name="description" content="Licensed California general contractor with 25+ years experience serving San Diego. Kitchen remodels, bathroom remodels, home additions, ADUs, tile and finish carpentry. Licensed and insured. Free estimates.">
+<meta name="description" content="Licensed California general contractor in San Diego, CSLB #1160738. Backed by more than 25 years of construction experience. Remodels, kitchens and baths, additions and ADUs, finish carpentry, tile, and outdoor living. Free estimates.">
 <link rel="icon" type="image/png" href="img/logo-ink.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,6 +212,7 @@
   .cta p{color:#bdb6a7;font-size:18px;margin:16px 0 24px;}
   .cta .contact-line{display:flex;align-items:center;gap:12px;color:#e8e5e0;font-size:16px;margin-top:14px;}
   .cta .contact-line i{color:var(--accent-tint);width:20px;text-align:center;}
+  .cta .contact-line .who{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
   form{background:#fff;border-radius:4px;padding:34px 32px;color:var(--ink);}
   form h3{font-size:24px;margin-bottom:6px;}
   form .fsub{font-size:14px;color:var(--muted);margin-bottom:22px;}
@@ -222,6 +223,7 @@
   .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);}
   form .btn{width:100%;justify-content:center;margin-top:6px;}
   .form-note{font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px;}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
 
   /* ---------- FOOTER ---------- */
   footer{background:#08080a;color:#8a857c;padding:64px 0 30px;font-size:14px;}
@@ -415,7 +417,7 @@
     <div class="wrap hero-content">
       <div class="eyebrow">San Diego &middot; Licensed General Contractor</div>
       <h1>Building, remodeling, tile and <i>finish carpentry.</i></h1>
-      <p>Licensed California general contractor with 25+ years delivering clean, precise work and thoughtful design. Licensed and insured. Free estimates.</p>
+      <p>Licensed California general contractor, CSLB #1160738, backed by more than 25 years of construction experience. Clean, precise work and thoughtful design. Free estimates.</p>
       <div class="hero-cta">
         <a class="btn" href="#contact">Request a Free Estimate</a>
         <a class="btn btn-ghost" href="#about">Meet Steven &amp; Pat</a>
@@ -434,7 +436,7 @@
   <!-- TRUST STRIP -->
   <div class="trust" id="trust">
     <div class="wrap row">
-      <span><i class="fa-solid fa-shield-halved"></i><b>Licensed &amp; Insured</b></span>
+      <span><i class="fa-solid fa-shield-halved"></i><b>Licensed &amp; Insured</b> &middot; CSLB #1160738</span>
       <span><i class="fa-solid fa-hammer"></i><b>25+ Years</b> of experience</span>
       <span><i class="fa-solid fa-clipboard-check"></i><b>Free Estimates</b></span>
       <span><i class="fa-solid fa-location-dot"></i><b>Locally Owned</b></span>
@@ -444,7 +446,7 @@
   <!-- STATS -->
   <section class="stats">
     <div class="wrap">
-      <p class="lead reveal">Build in SD has served San Diego and the greater Southern California area for over 25 years. We specialize in remodels, tile installations, finish carpentry, and home additions, combining solid construction practices with a design-trained eye for proportion, layout, and detail.</p>
+      <p class="lead reveal">Backed by more than 25 years of construction experience. We specialize in remodels, kitchens and baths, additions and ADUs, finish carpentry, tile, and outdoor living, combining solid construction practices with a design-trained eye for proportion, layout, and detail.</p>
     </div>
   </section>
 
@@ -481,7 +483,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="eyebrow">Past Projects</div>
-        <h2>Recent work around <i>San Diego.</i></h2>
+        <h2>Selected <i>Projects.</i></h2>
         <p>A selection of homes we have reshaped. Open any project to see it before, during, and finished.</p>
       </div>
       <div class="proj-grid">
@@ -576,34 +578,43 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <div class="eyebrow">Services Offered</div>
-        <h2>From small home repairs to <i>full-scale construction.</i></h2>
-        <p>We handle all types of work, including repairs, remodeling, additions, ADUs, and new builds, delivering high-quality craftsmanship with a focus on durability and clean, modern finishes.</p>
+        <h2>Remodels, additions, and <i>full-scale construction.</i></h2>
+        <p>Remodels &middot; Kitchens &amp; Baths &middot; Additions &amp; ADUs &middot; Finish Carpentry &middot; Tile &middot; Outdoor Living. We also take on smaller repairs and maintenance.</p>
       </div>
       <div class="svc-grid">
         <div class="svc flip d1">
-          <div class="ph"><img src="img/kitchen-4.jpg" alt="Kitchen remodeling in San Diego"></div>
-          <div class="svc-body"><div class="eyebrow">Service</div><h3>Kitchen Remodeling in San Diego</h3><p>Transforming your space with custom designs and high-quality upgrades. Whether you are updating an older kitchen or completely redesigning the space, we manage the entire remodeling process.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Custom cabinetry installation</li><li><i class="fa-solid fa-check"></i>Countertops and backsplash upgrades</li><li><i class="fa-solid fa-check"></i>Structural wall modifications</li><li><i class="fa-solid fa-check"></i>Electrical and lighting improvements</li><li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li><li><i class="fa-solid fa-check"></i>Flooring replacement</li><li><i class="fa-solid fa-check"></i>Layout redesign</li><li><i class="fa-solid fa-check"></i>Permit coordination</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
+          <div class="ph"><img src="img/proj-condo.jpg" alt="Whole-home remodel in San Diego"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Remodels</h3><p>Whole-home and multi-room remodels, from opening up a floor plan to the final coat of paint.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Whole-home and condo remodels</li><li><i class="fa-solid fa-check"></i>Layout and structural changes</li><li><i class="fa-solid fa-check"></i>Flooring, paint, and finishes</li><li><i class="fa-solid fa-check"></i>Electrical and plumbing upgrades</li><li><i class="fa-solid fa-check"></i>Permit coordination and inspection support</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
         </div>
         <div class="svc flip d2">
-          <div class="ph"><img src="img/bath-vanity.jpg" alt="Bathroom remodeling in San Diego"></div>
-          <div class="svc-body"><div class="eyebrow">Service</div><h3>Bathroom Remodeling in San Diego</h3><p>Whether you are upgrading fixtures, improving layout, or creating a completely new design, we deliver high-quality craftsmanship and attention to detail, from tile installation and custom vanities to plumbing upgrades and modern finishes.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Custom shower and bathtub installation</li><li><i class="fa-solid fa-check"></i>Tile flooring and wall tile, including steam showers</li><li><i class="fa-solid fa-check"></i>Vanity and countertop upgrades</li><li><i class="fa-solid fa-check"></i>Plumbing fixture installation</li><li><i class="fa-solid fa-check"></i>Lighting and electrical upgrades</li><li><i class="fa-solid fa-check"></i>Layout redesign</li><li><i class="fa-solid fa-check"></i>Waterproofing and ventilation improvements</li><li><i class="fa-solid fa-check"></i>Permit coordination</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
+          <div class="ph"><img src="img/kitchen-4.jpg" alt="Kitchen and bath remodeling in San Diego"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Kitchens &amp; Baths</h3><p>Transforming your space with custom designs and high-quality upgrades, whether you are updating an older room or redesigning it completely.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Custom cabinetry installation</li><li><i class="fa-solid fa-check"></i>Countertops and backsplash upgrades</li><li><i class="fa-solid fa-check"></i>Custom shower, bathtub, and vanity installation</li><li><i class="fa-solid fa-check"></i>Tile flooring and wall tile, including steam showers</li><li><i class="fa-solid fa-check"></i>Plumbing, lighting, and electrical upgrades</li><li><i class="fa-solid fa-check"></i>Layout redesign and structural wall modifications</li><li><i class="fa-solid fa-check"></i>Waterproofing and ventilation improvements</li><li><i class="fa-solid fa-check"></i>Permit coordination and inspection support</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
         </div>
         <div class="svc flip d3">
           <div class="ph"><img src="img/proj-cottage.jpg" alt="Home additions and accessory dwelling units"></div>
-          <div class="svc-body"><div class="eyebrow">Service</div><h3>Additions &amp; ADUs</h3><p>We handle every phase, ensuring your ADU meets all local San Diego requirements while maximizing functionality, efficiency, and value, with craftsmanship that integrates naturally with your existing home.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Design coordination</li><li><i class="fa-solid fa-check"></i>Permitting and local San Diego requirements</li><li><i class="fa-solid fa-check"></i>Full construction</li><li><i class="fa-solid fa-check"></i>Thoughtful layouts</li><li><i class="fa-solid fa-check"></i>Premium finishes and craftsmanship</li></ul><a class="more" href="#contact">Talk it through <i class="fa-solid fa-arrow-right"></i></a></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Additions &amp; ADUs</h3><p>We handle every phase of the build, from design coordination through construction, with thoughtful layouts and craftsmanship that integrate naturally with your existing home.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Design coordination</li><li><i class="fa-solid fa-check"></i>Permit coordination and inspection support</li><li><i class="fa-solid fa-check"></i>Full construction</li><li><i class="fa-solid fa-check"></i>Thoughtful layouts</li><li><i class="fa-solid fa-check"></i>Premium finishes and craftsmanship</li></ul><a class="more" href="#contact">Talk it through <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="svc flip d1">
+          <div class="ph"><img src="img/svc-carpentry.jpg" alt="Finish carpentry and millwork"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Finish Carpentry</h3><p>The details that make a project feel custom. Built-ins, trim, cabinetry, and fine finish work done by hand.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Built-ins and cabinetry</li><li><i class="fa-solid fa-check"></i>Trim and millwork</li><li><i class="fa-solid fa-check"></i>Custom gates and fencing</li><li><i class="fa-solid fa-check"></i>Doors and hardware</li><li><i class="fa-solid fa-check"></i>Fine detail work</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="svc flip d2">
+          <div class="ph"><img src="img/proj-bath.jpg" alt="Custom tile and stone work"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Tile</h3><p>Custom tile and stone work, including steam showers, full wall treatments, and specialty installations.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Floor and wall tile</li><li><i class="fa-solid fa-check"></i>Custom showers and steam showers</li><li><i class="fa-solid fa-check"></i>Stone and mosaic work</li><li><i class="fa-solid fa-check"></i>Waterproofing and substrate prep</li><li><i class="fa-solid fa-check"></i>Saltillo and specialty tile</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="svc flip d3">
+          <div class="ph"><img src="img/svc-outdoor.jpg" alt="Outdoor living spaces and patios"></div>
+          <div class="svc-body"><div class="eyebrow">Service</div><h3>Outdoor Living</h3><p>Custom decks, outdoor kitchens, entertainment areas, and the hardscape that ties them together.</p><ul class="checks"><li><i class="fa-solid fa-check"></i>Decks and patios</li><li><i class="fa-solid fa-check"></i>Outdoor kitchens</li><li><i class="fa-solid fa-check"></i>Entertainment areas</li><li><i class="fa-solid fa-check"></i>Retaining walls and fencing</li><li><i class="fa-solid fa-check"></i>Stucco and hardscape</li></ul><a class="more" href="#contact">Request an estimate <i class="fa-solid fa-arrow-right"></i></a></div>
         </div>
       </div>
 
       <div class="svc-mini reveal">
-        <div class="mini"><i class="fa-solid fa-house-chimney"></i><h4>Home Additions &amp; New Construction</h4><p>Expanding and building homes tailored to your needs.</p></div>
-        <div class="mini"><i class="fa-solid fa-fire-burner"></i><h4>Outdoor Living Spaces</h4><p>Creating custom decks, kitchens, entertainment areas, and more.</p></div>
+        <div class="mini"><i class="fa-solid fa-house-chimney"></i><h4>New Construction</h4><p>Building homes and structures tailored to your needs.</p></div>
         <div class="mini"><i class="fa-solid fa-door-open"></i><h4>Windows, Doors &amp; Exterior Finishes</h4><p>Installation, repair, and updates for a polished exterior.</p></div>
-        <div class="mini"><i class="fa-solid fa-ruler-combined"></i><h4>Custom Carpentry &amp; Woodworking</h4><p>Built-ins, trim, cabinetry, and fine finish details.</p></div>
         <div class="mini"><i class="fa-solid fa-helmet-safety"></i><h4>Structural Repairs &amp; Retrofits</h4><p>Foundation, framing, and structural updates for safety and durability.</p></div>
         <div class="mini"><i class="fa-solid fa-droplet"></i><h4>Damage Restoration</h4><p>Fire, flood, and other disaster repair services.</p></div>
         <div class="mini"><i class="fa-solid fa-screwdriver-wrench"></i><h4>General Repairs &amp; Maintenance</h4><p>Stucco, drywall, electrical, and more to keep your home in top shape.</p></div>
-        <div class="mini"><i class="fa-solid fa-trowel-bricks"></i><h4>Tile &amp; Stone Installation</h4><p>Custom tile and stone work, including steam showers and full wall treatments.</p></div>
-        <div class="mini"><i class="fa-solid fa-file-signature"></i><h4>Permit Coordination</h4><p>We manage the city paperwork and inspections so your project stays on track.</p></div>
+        <div class="mini"><i class="fa-solid fa-file-signature"></i><h4>Permit Coordination</h4><p>Permit coordination and inspection support.</p></div>
       </div>
 
       <div class="proj-foot reveal"><a class="btn btn-dark" href="#contact">Request a Free Estimate</a></div>
@@ -638,7 +649,7 @@
       <div class="steps reveal">
         <div class="step"><div class="n">Step 01</div><h4>Free Estimate</h4><p>We visit, listen, and scope the work with you. No obligation.</p></div>
         <div class="step"><div class="n">Step 02</div><h4>Design</h4><p>We coordinate design, materials, and layout around your budget.</p></div>
-        <div class="step"><div class="n">Step 03</div><h4>Permits</h4><p>We handle permit coordination and local requirements.</p></div>
+        <div class="step"><div class="n">Step 03</div><h4>Permits</h4><p>Permit coordination and inspection support.</p></div>
         <div class="step"><div class="n">Step 04</div><h4>Build</h4><p>Careful planning, clear communication, and steady progress.</p></div>
         <div class="step"><div class="n">Step 05</div><h4>Walkthrough</h4><p>We finish clean and we do not leave until the detail is right.</p></div>
       </div>
@@ -694,12 +705,17 @@
         <div class="eyebrow">Let's Build</div>
         <h2>Let's get to <i>work.</i></h2>
         <p>From conceptualizing to constructing, we're ready to design your dream. We promise a client-centric approach that empowers ideas, eases concerns, and delivers quality craftsmanship we'll all be proud of.</p>
-        <div class="contact-line"><i class="fa-solid fa-phone"></i> <a href="tel:8584724640">858-472-4640</a></div>
+        <div class="contact-line"><i class="fa-solid fa-phone"></i> <a href="tel:8584724640">858-472-4640</a> <span class="who">Steven</span></div>
+        <div class="contact-line"><i class="fa-solid fa-phone"></i> <a href="tel:8583950509">858-395-0509</a> <span class="who">Pat</span></div>
         <div class="contact-line"><i class="fa-solid fa-envelope"></i> <a href="mailto:buildinsd@gmail.com">buildinsd@gmail.com</a></div>
         <div class="contact-line"><i class="fa-solid fa-location-dot"></i> San Diego, California</div>
-        <div class="contact-line"><i class="fa-solid fa-shield-halved"></i> Licensed &amp; Insured &middot; Free Estimates &middot; Locally Owned</div>
+        <div class="contact-line"><i class="fa-solid fa-shield-halved"></i> Licensed &amp; Insured &middot; CSLB #1160738</div>
+        <div class="contact-line"><i class="fa-solid fa-clipboard-check"></i> Free Estimates &middot; Locally Owned</div>
       </div>
-      <form class="reveal d1" onsubmit="return submitForm(event)">
+      <form class="reveal d1" name="estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return submitForm(event)">
+        <input type="hidden" name="form-name" value="estimate">
+        <input type="hidden" name="source" value="Page form">
+        <p class="hp"><label>Do not fill this in <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
         <h3>Request a Free Estimate</h3>
         <div class="fsub">No obligation. We'll never share your info.</div>
         <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
@@ -733,7 +749,7 @@
       <div class="foot-grid">
         <div>
           <div class="brand"><img src="img/logo-white.png" alt="Build in SD"></div>
-          <p>Licensed California general contractor serving San Diego and the greater Southern California area for over 25 years. Remodels, tile installations, finish carpentry, and home additions.</p>
+          <p>Licensed California general contractor, CSLB #1160738. Backed by more than 25 years of construction experience. Remodels, kitchens and baths, additions and ADUs, finish carpentry, tile, and outdoor living.</p>
         </div>
         <div>
           <h5>Services</h5>
@@ -750,10 +766,12 @@
         <div>
           <h5>Contact</h5>
           <ul>
-            <li><a href="tel:8584724640">858-472-4640</a></li>
+            <li><a href="tel:8584724640">858-472-4640</a> &middot; Steven</li>
+            <li><a href="tel:8583950509">858-395-0509</a> &middot; Pat</li>
             <li><a href="mailto:buildinsd@gmail.com">buildinsd@gmail.com</a></li>
             <li>San Diego, California</li>
             <li>Licensed &amp; Insured</li>
+            <li><b style="color:#bdb6a7;">CSLB #1160738</b></li>
             <li>Free Estimates</li>
             <li>Locally Owned</li>
           </ul>
@@ -761,7 +779,7 @@
       </div>
       <div class="foot-bottom">
         <span>&copy; 2026 Build in SD. All rights reserved.</span>
-        <span>Licensed &amp; Insured &middot; Free Estimates &middot; Locally Owned</span>
+        <span>Licensed &amp; Insured &middot; CSLB #1160738 &middot; Free Estimates</span>
       </div>
     </div>
   </footer>
@@ -780,20 +798,27 @@
         <div class="cw-step on" id="cwStep1">
           <a class="cw-row" href="tel:8584724640">
             <span class="ic"><i class="fa-solid fa-phone"></i></span>
-            <span><span class="t">Call</span><span class="v">858-472-4640</span></span>
+            <span><span class="t">Call Steven</span><span class="v">858-472-4640</span></span>
+          </a>
+          <a class="cw-row" href="tel:8583950509">
+            <span class="ic"><i class="fa-solid fa-phone"></i></span>
+            <span><span class="t">Call Pat</span><span class="v">858-395-0509</span></span>
           </a>
           <a class="cw-row" href="mailto:buildinsd@gmail.com">
             <span class="ic"><i class="fa-solid fa-envelope"></i></span>
             <span><span class="t">Email</span><span class="v">buildinsd@gmail.com</span></span>
           </a>
           <button class="btn" id="cwToForm">Submit an Inquiry <i class="fa-solid fa-arrow-right"></i></button>
-          <div class="cw-note">Licensed &amp; Insured &middot; Free Estimates</div>
+          <div class="cw-note">Licensed &amp; Insured &middot; CSLB #1160738</div>
         </div>
 
         <!-- step 2: the form -->
         <div class="cw-step" id="cwStep2">
           <button class="cw-back" id="cwBack"><i class="fa-solid fa-arrow-left"></i> Back</button>
-          <form id="cwForm">
+          <form id="cwForm" name="estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="estimate">
+            <input type="hidden" name="source" value="Contact widget">
+            <p class="hp"><label>Do not fill this in <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
             <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="858-472-4640" required></div>
             <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@example.com"></div>
@@ -905,7 +930,15 @@
   document.getElementById('cwBack').addEventListener('click',()=>cwStep(1));
   document.getElementById('cwForm').addEventListener('submit',e=>{
     e.preventDefault();
-    cwStep(3);
+    const form = e.target, btn = form.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    deliver(form).then(()=>{
+      cwStep(3); form.reset();
+    }).catch(()=>{
+      btn.disabled = false; btn.textContent = 'Send My Inquiry';
+      form.querySelector('.cw-note').innerHTML =
+        'Could not send automatically. <a href="' + mailtoFor(form) + '" style="color:var(--accent);font-weight:600;">Email it instead</a>.';
+    }).finally(()=>{ btn.disabled = false; btn.textContent = 'Send My Inquiry'; });
   });
   // close on outside click / Esc
   document.addEventListener('click',e=>{
@@ -974,11 +1007,49 @@
     x0=null;
   },{passive:true});
 
-  // demo form
+  // ---------- form delivery ----------
+  // Posts to Netlify Forms, which emails buildinsd@gmail.com. If that POST cannot be
+  // made (page served somewhere other than Netlify, or the network is down) we hand the
+  // visitor a prefilled email instead, so a filled-out enquiry is never silently lost.
+  const INBOX = 'buildinsd@gmail.com';
+
+  function mailtoFor(form){
+    const d = new FormData(form);
+    const subject = 'Estimate request' + (d.get('name') ? ' from ' + d.get('name') : '');
+    const body = [
+      'Name: '    + (d.get('name')    || ''),
+      'Phone: '   + (d.get('phone')   || ''),
+      'Email: '   + (d.get('email')   || ''),
+      'Project: ' + (d.get('project') || ''),
+      '',
+      d.get('details') || ''
+    ].join('\n');
+    return 'mailto:' + INBOX + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  async function deliver(form){
+    const body = new URLSearchParams(new FormData(form)).toString();
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: body
+    });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+  }
+
+  // page form
   function submitForm(e){
     e.preventDefault();
-    document.getElementById('formNote').innerHTML='<span style="color:#2f6d4f;font-weight:600;">Thanks! This is a demo form. We\'ll wire it to email or your CRM before launch.</span>';
-    e.target.querySelector('button').textContent='Request Received';
+    const form = e.target, btn = form.querySelector('button'), note = document.getElementById('formNote');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    deliver(form).then(()=>{
+      note.innerHTML = '<span style="color:#2f6d4f;font-weight:600;">Thanks. We have your request and will be in touch within one business day.</span>';
+      btn.textContent = 'Request Received';
+      form.reset();
+    }).catch(()=>{
+      btn.disabled = false; btn.textContent = 'Request My Estimate';
+      note.innerHTML = 'We could not send that automatically. <a href="' + mailtoFor(form) + '" style="color:var(--accent);font-weight:600;">Email it to us instead</a> or call 858-472-4640.';
+    });
     return false;
   }
 </script>
