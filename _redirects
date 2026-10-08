@@ -1,0 +1,36 @@
+# Redirects for the buildinsd.com cutover from Squarespace.
+# Every URL below is in his live Squarespace sitemap, so each one is a page
+# Google has indexed or a link that may already be in circulation. Without
+# these they all 404 the moment the domain points here.
+#
+# Netlify reads this file from the publish root. GitHub Pages ignores it.
+
+# --- top level pages ---
+/home                   /                 301
+/about                  /#about           301
+/services               /#services        301
+/projects               /#projects        301
+/testimonials           /#reviews         301
+/contact-us             /#contact         301
+
+# --- the two service landing pages ---
+/bathroom-remodeling    /#services        301
+/new-pae                /#services        301
+
+# --- individual project pages ---
+# Several map to a specific gallery; the rest land on the projects grid.
+/projects/project-three-8zgh7-za8fz-btffx       /#projects   301
+/projects/project-two-llrgk-8m5ng-8gx46         /#projects   301
+/projects/project-one-ephnc-p2jtd-jydce         /#projects   301
+/projects/new-portfolio-item-7k2e7              /#projects   301
+/projects/project-foothill-condo-remodel-7tp7m  /#projects   301
+/projects/kitchen-addition-zdwkt                /#projects   301
+/projects/project-new-entry-porch-m49l6         /#projects   301
+/projects/project-four-yjynj-4yxzx-7tsga        /#projects   301
+/projects/bathroom-remodel-ldj4e                /#projects   301
+/projects/garage-remodel-9ty3y                  /#projects   301
+# Highlands was pulled from the site, but the old URL still needs somewhere to go.
+/projects/highlands-bathrooms-b5ct9             /#projects   301
+
+# Catch anything else under /projects/ that was never in the sitemap.
+/projects/*             /#projects        301
